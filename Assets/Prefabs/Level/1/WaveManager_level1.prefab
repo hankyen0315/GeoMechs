@@ -1,0 +1,543 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5727886406801847520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5727886406801847534}
+  - component: {fileID: 5727886406801847521}
+  m_Layer: 0
+  m_Name: WaveManager_level1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5727886406801847534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727886406801847520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 950.7636, y: 567.36633, z: -7.8093214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5727886406801847521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727886406801847520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac729dd17dd8ef343b9fc0b2e146cf3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1
+  waveData:
+  - EnemyInfos: []
+    StartWaitTime: 1
+    events: []
+    Type: 3
+  - EnemyInfos:
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 5
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 10
+      MaxYOffset: 0
+      spawnTimeInterval: 0.5
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 5
+      MaxYOffset: 0
+      spawnTimeInterval: 0.5
+      timeToNextInfo: 4
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 10
+      MaxYOffset: 0
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 3
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 1
+      timeToNextInfo: 0
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 2
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 1
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 4756646213971090570, guid: 3db9572e1000bd741b8c7dacbd529706, type: 3}
+      number: 1
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 0
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    StartWaitTime: 2
+    events: []
+    Type: 2
+  - EnemyInfos: []
+    StartWaitTime: 1
+    events: []
+    Type: 3
+  - EnemyInfos:
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 8
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 5
+      MaxYOffset: 0
+      spawnTimeInterval: 1
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 7144605119980016652, guid: 0ed168800b831424494c2d200e3a3354, type: 3}
+      number: 1
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 0
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events:
+    - EventType: UnlockPartEvent
+      integerA: 0
+      integerB: 2
+      integerC: 0
+      str: 
+    - EventType: BonusCoinEvent
+      integerA: 0
+      integerB: 200
+      integerC: 0
+      str: 
+    Type: 1
+  - EnemyInfos: []
+    StartWaitTime: 1
+    events: []
+    Type: 3
+  - EnemyInfos:
+    - prefab: {fileID: 7144605119980016652, guid: 0ed168800b831424494c2d200e3a3354, type: 3}
+      number: 1
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 0
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 7144605119980016652, guid: 0ed168800b831424494c2d200e3a3354, type: 3}
+      number: 3
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 8
+      MaxYOffset: 0
+      spawnTimeInterval: 0
+      timeToNextInfo: 3
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 3
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 2
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 1
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 12
+      MaxYOffset: 0
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    - prefab: {fileID: 7144605119980016652, guid: 0ed168800b831424494c2d200e3a3354, type: 3}
+      number: 5
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 10
+      MaxYOffset: 0
+      spawnTimeInterval: 2
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 6
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 10
+      MaxYOffset: 0
+      spawnTimeInterval: 0.5
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events:
+    - EventType: UnlockPartEvent
+      integerA: 0
+      integerB: 3
+      integerC: 0
+      str: 
+    - EventType: BonusCoinEvent
+      integerA: 0
+      integerB: 100
+      integerC: 0
+      str: 
+    Type: 2
+  - EnemyInfos: []
+    StartWaitTime: 1
+    events: []
+    Type: 3
+  - EnemyInfos:
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 4
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 8
+      MaxYOffset: 0
+      spawnTimeInterval: 0.5
+      timeToNextInfo: 0
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 4
+      spawnPosition: 3
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 0.5
+      timeToNextInfo: 0
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 4
+      spawnPosition: 1
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 8
+      MaxYOffset: 0
+      spawnTimeInterval: 0.5
+      timeToNextInfo: 0
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 4
+      spawnPosition: 2
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 0.5
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 4
+      spawnPosition: 5
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 4
+      MaxYOffset: 4
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 4
+      spawnPosition: 4
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 4
+      MaxYOffset: 4
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 4
+      spawnPosition: 6
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 4
+      MaxYOffset: 4
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 4
+      spawnPosition: 7
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 4
+      MaxYOffset: 4
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 1044015918401557640, guid: 01d27e971378846439ceace43648b952, type: 3}
+      number: 1
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 5
+      MaxYOffset: 0
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 4756646213971090570, guid: 2810fb5b6626ef144beafcf7639daa9d, type: 3}
+      number: 1
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 6
+      MaxYOffset: 0
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 2585039604538041713, guid: bd369f80b777c964984715c5fab43aec, type: 3}
+      number: 45
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 6
+      MaxYOffset: 0
+      spawnTimeInterval: 0.25
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos: []
+    StartWaitTime: 1
+    events: []
+    Type: 3
+  - EnemyInfos:
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 5
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 10
+      MaxYOffset: 0
+      spawnTimeInterval: 2
+      timeToNextInfo: 1
+    - prefab: {fileID: 7144605119980016652, guid: 0ed168800b831424494c2d200e3a3354, type: 3}
+      number: 3
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 8
+      MaxYOffset: 0
+      spawnTimeInterval: 1
+      timeToNextInfo: 6
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 3
+      spawnPosition: 2
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 1
+      timeToNextInfo: 0
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 3
+      spawnPosition: 3
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 1
+      timeToNextInfo: 2
+    - prefab: {fileID: 4756646213971090570, guid: 3db9572e1000bd741b8c7dacbd529706, type: 3}
+      number: 2
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 6
+      MaxYOffset: 0
+      spawnTimeInterval: 2
+      timeToNextInfo: 0
+    StartWaitTime: 1
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 7144605119980016652, guid: 0ed168800b831424494c2d200e3a3354, type: 3}
+      number: 5
+      spawnPosition: 1
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 12
+      MaxYOffset: 0
+      spawnTimeInterval: 2
+      timeToNextInfo: 0
+    - prefab: {fileID: 1044015918401557640, guid: 01d27e971378846439ceace43648b952, type: 3}
+      number: 2
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 8
+      MaxYOffset: 0
+      spawnTimeInterval: 3
+      timeToNextInfo: 0
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 6
+      spawnPosition: 2
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 2
+      timeToNextInfo: 0
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 6
+      spawnPosition: 3
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 2
+      timeToNextInfo: 0
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 6
+      spawnPosition: 1
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 12
+      MaxYOffset: 0
+      spawnTimeInterval: 2
+      timeToNextInfo: 0
+    StartWaitTime: 2
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 4
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 3
+      MaxYOffset: 3
+      spawnTimeInterval: 1
+      timeToNextInfo: 2
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 5
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 3
+      MaxYOffset: 3
+      spawnTimeInterval: 1
+      timeToNextInfo: 2
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 6
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 3
+      MaxYOffset: 3
+      spawnTimeInterval: 1
+      timeToNextInfo: 2
+    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
+      number: 4
+      spawnPosition: 7
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 3
+      MaxYOffset: 3
+      spawnTimeInterval: 1
+      timeToNextInfo: 2
+    - prefab: {fileID: 7144605119980016652, guid: 0ed168800b831424494c2d200e3a3354, type: 3}
+      number: 2
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 8
+      MaxYOffset: 0
+      spawnTimeInterval: 0
+      timeToNextInfo: 5
+    - prefab: {fileID: 4756646213971090570, guid: 74aa0be9703f8f9438b75a315d80e75d, type: 3}
+      number: 2
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 8
+      MaxYOffset: 0
+      spawnTimeInterval: 1
+      timeToNextInfo: 0
+    - prefab: {fileID: 4756646213971090570, guid: 2810fb5b6626ef144beafcf7639daa9d, type: 3}
+      number: 1
+      spawnPosition: 2
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    - prefab: {fileID: 4756646213971090570, guid: 2810fb5b6626ef144beafcf7639daa9d, type: 3}
+      number: 1
+      spawnPosition: 3
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 8
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    StartWaitTime: 2
+    events: []
+    Type: 2
+  - EnemyInfos:
+    - prefab: {fileID: 2585039604538041713, guid: bd369f80b777c964984715c5fab43aec, type: 3}
+      number: 70
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 8
+      MaxYOffset: 0
+      spawnTimeInterval: 0.25
+      timeToNextInfo: 0
+    StartWaitTime: 2
+    events: []
+    Type: 2
+  - EnemyInfos: []
+    StartWaitTime: 2
+    events: []
+    Type: 3
+  - EnemyInfos:
+    - prefab: {fileID: 1639726462968610675, guid: d8c07909d881d5541bbbc3c2c9b784b8, type: 3}
+      number: 1
+      spawnPosition: 0
+      SpawnPosition: {fileID: 0}
+      MaxXOffset: 0
+      MaxYOffset: 0
+      spawnTimeInterval: 0
+      timeToNextInfo: 0
+    StartWaitTime: 4
+    events: []
+    Type: 0
+  Enemys: []
+  WaveCount: 0
+  Warning: {fileID: 3704317636734104855, guid: f67904b303e15f744a764a500c13adb4, type: 3}
+  warnings: []
+  flashingTime: 1.25
+  playerExitSpeed: 20
+  adjustFactor: 0.3
