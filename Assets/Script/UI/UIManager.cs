@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+//using UnityEditor.Experimental.GraphView;
+//using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using UnityEngine.Video;
 
 public class UIManager : MonoBehaviour
