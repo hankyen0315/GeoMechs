@@ -9,6 +9,8 @@ using UnityEngine.Video;
 
 public class UIManager : MonoBehaviour
 {
+
+    [Header("Scene Independent")]
     [SerializeField]
     private TextMeshProUGUI coinTextMesh;
     [SerializeField]
@@ -44,8 +46,7 @@ public class UIManager : MonoBehaviour
     private GameObject partPanel;
 
 
-    [SerializeField]
-    private WaveManager waveManager;
+    
     [SerializeField]
     private Image progressBar;
     private float waveLengthUnit;
@@ -63,14 +64,12 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private RectTransform startPoint;
 
-    public int UnlockedPartAmount;
-    private int shownPartAmount = 6;
-    private int currentFirstPartID = 0;
+    
     [SerializeField]
     private GameObject nextPartBtn;
     [SerializeField]
     private GameObject prevPartBtn;
-    public Transform CollectedPosition;
+    
 
     public delegate void UIAction();
     public static UIAction pendingAction = null;
@@ -80,6 +79,20 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject VideoFrame;
 
+    [SerializeField]
+    private GameObject[] TutorialPages;
+    private int currentPage = 1;
+    private int PageAmount = 2;
+    [SerializeField]
+    private TextMeshProUGUI TutorialPageText;
+
+    [Header("Scene Dependent")]
+    [SerializeField]
+    private WaveManager waveManager;
+    public int UnlockedPartAmount;
+    private int shownPartAmount = 6;
+    private int currentFirstPartID = 0;
+    public Transform CollectedPosition;
 
     public static UIManager Instance { get; private set; }
     private void Awake()
@@ -216,6 +229,23 @@ public class UIManager : MonoBehaviour
     {
         playerIcon.rectTransform.position = startPoint.position + new Vector3(0f, waveCount * waveLengthUnit);
         progressBar.fillAmount = waveCount / totalWaveCount;
+    }
+
+    public void ShowTutorialNextPage()
+    {
+        if (currentPage == PageAmount) return;
+        TutorialPageText.text = (currentPage+1).ToString() + "/" + PageAmount.ToString();
+        TutorialPages[currentPage - 1].SetActive(false);
+        currentPage++;
+        TutorialPages[currentPage-1].SetActive(true);
+    }
+    public void ShowTutorialPrevPage()
+    {
+        if (currentPage == 1) return;
+        TutorialPageText.text = (currentPage - 1).ToString() + "/" + PageAmount.ToString();
+        TutorialPages[currentPage-1].SetActive(false);
+        currentPage--;
+        TutorialPages[currentPage-1].SetActive(true);
     }
 
 
