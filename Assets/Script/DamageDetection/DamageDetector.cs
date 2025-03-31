@@ -11,6 +11,7 @@ public abstract class DamageDetector : MonoBehaviour
     protected string onHitSound = "";
     public Color ParticleColor= Color.white;
     public Color HitColor = Color.white;
+    public float HitColorDuration = 0.25f;
     private Color originalColor;
     private void Start()
     {
@@ -64,7 +65,7 @@ public abstract class DamageDetector : MonoBehaviour
     IEnumerator WaitSecond()
     {
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(HitColorDuration);
         if (gameObject.GetComponent<SpriteRenderer>())
             gameObject.GetComponent<SpriteRenderer>().color = originalColor;
     }

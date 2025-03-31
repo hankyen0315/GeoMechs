@@ -63,6 +63,7 @@ public class CutScene : MonoBehaviour
     private IEnumerator FightEndCutScene(Vector3 diedEnemyPosition)
     {
         bool finishZoom = false;
+
         while (!finishZoom)
         {
             finishZoom = FindAnyObjectByType<CameraMagnify>().GoToEnemy(diedEnemyPosition, 6);

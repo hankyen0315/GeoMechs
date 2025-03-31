@@ -1548,7 +1548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0021972656
+      value: 0.002166748
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3010,7 +3010,7 @@ MonoBehaviour:
     Type: 3
   - EnemyInfos:
     - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
-      number: 4
+      number: 1
       spawnPosition: 0
       SpawnPosition: {fileID: 2011276011}
       MaxXOffset: 10
