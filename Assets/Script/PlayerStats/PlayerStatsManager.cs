@@ -65,7 +65,6 @@ public class PlayerStatsManager : MonoBehaviour
         }
         yield return new WaitForSeconds(0.3f);
         Time.timeScale = 1f;
-        //yield return new WaitForSeconds(0.5f);
 
         if (stats.Lives == 1)
         {
@@ -96,12 +95,10 @@ public class PlayerStatsManager : MonoBehaviour
         }
 
         stats.Coin += amount;
-        //GameObject.Find("CoinText").GetComponent<TextMeshProUGUI>().text = stats.Coin.ToString();
-        UIManager.Instance.ChangeCoinText(stats.Coin.ToString());
+        UIManager.Instance.ChangeCoinText(stats.Coin.ToString(), amount);
         return true;
     }
 
-    //finish the other getter method in the near future(because i'm lazy)
     public float GetMoveSpeed()
     {
         return stats.MoveSpeed;

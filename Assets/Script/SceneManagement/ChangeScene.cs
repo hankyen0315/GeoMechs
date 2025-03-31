@@ -10,7 +10,7 @@ public class ChangeScene : MonoBehaviour
     //{
     //    SceneManager.LoadScene(1);
     //}
-
+    //todo: change the scene index to enum
     public static void ToSelectionScene()
     {
         SceneManager.LoadScene(1);

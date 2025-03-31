@@ -207,7 +207,7 @@ MonoBehaviour:
   DropCoin: 10
   IsBoss: 0
   IsEnemyEntity: 1
-  Break: {fileID: 21300000, guid: 9dd61b685ea0d7b439868c110eea705d, type: 3}
+  BreakSprite: {fileID: 21300000, guid: 415c82bf778e43849a446848ae2f61f5, type: 3}
   explode: {fileID: 4729991645428076325, guid: 1a7a236c8458e78478a4640417c11efa, type: 3}
   stopMove: 0
 --- !u!114 &1856237996830840615

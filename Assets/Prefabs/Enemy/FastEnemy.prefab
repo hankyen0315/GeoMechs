@@ -30,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7181046430191443817}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.05, y: 0.569, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8698875308511321064
 SpriteRenderer:
@@ -55,6 +55,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -92,7 +95,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!50 &1235867757586779563
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,10 +106,16 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -130,7 +139,7 @@ MonoBehaviour:
   DropCoin: 15
   IsBoss: 0
   IsEnemyEntity: 1
-  Break: {fileID: 21300000, guid: 7dd064e608b99e04a8786040bca1e46b, type: 3}
+  BreakSprite: {fileID: 21300000, guid: 7dd064e608b99e04a8786040bca1e46b, type: 3}
   explode: {fileID: 4729991645428076325, guid: 1a7a236c8458e78478a4640417c11efa, type: 3}
   stopMove: 0
 --- !u!114 &3575937069331289565
@@ -150,6 +159,7 @@ MonoBehaviour:
   onHitSound: 
   ParticleColor: {r: 1, g: 0, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
+  HitColorDuration: 0.25
 --- !u!60 &6126498384036733257
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -158,11 +168,32 @@ PolygonCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7181046430191443817}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,6 +211,7 @@ PolygonCollider2D:
       - {x: -0.44537073, y: -0.34601134}
       - {x: -0.0017611422, y: -0.050198376}
       - {x: 0.42981243, y: -0.3361748}
+  m_UseDelaunayMesh: 0
 --- !u!114 &7264845811472611632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,11 +243,12 @@ Animation:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7181046430191443817}
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Animation: {fileID: 7400000, guid: 09c048a671ef5b0418a5fecdf536eac4, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 09c048a671ef5b0418a5fecdf536eac4, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
+  m_UpdateMode: 0
   m_CullingType: 0

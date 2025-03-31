@@ -20,7 +20,7 @@ public class EnemyStatsManager : MonoBehaviour, IGiveDamage
     public bool IsBoss = false;
     public bool IsEnemyEntity = true;
 
-    public Sprite Break;
+    public Sprite BreakSprite;
     private bool breaking = false;
     public GameObject explode;
     //[SerializeField]
@@ -46,31 +46,14 @@ public class EnemyStatsManager : MonoBehaviour, IGiveDamage
 
         if (health <= maxHealth / 2)
         {
-            if (Break && !breaking)
+            if (BreakSprite && !breaking)
             {
-                GetComponent<SpriteRenderer>().sprite = Break;
+                GetComponent<SpriteRenderer>().sprite = BreakSprite;
             }
         }
         if (health <= 0f)
         {
             EnemyDeath(killByPlayer);
-            //AudioManager.Instance.PlaySFX("Enemy Death");
-            //if (IsEnemyEntity)
-            //{
-            //    WaveManager.Instance.Enemys.Remove(gameObject);
-            //    WaveManager.Instance.EnemyCount -= 1;
-            //}
-            //if (killByPlayer)
-            //{
-            //    PlayerStatsManager.Instance.TryChangeCoin(DropCoin); // DropCoin should be positive
-            //}
-            
-            //if (explode != null)
-            //{
-            //    GameObject particle = Instantiate(explode, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0f), Quaternion.identity);
-            //    ParticleSystem.MainModule main = particle.GetComponent<ParticleSystem>().main;
-            //}
-            //Destroy(gameObject);
         }
     }
 
@@ -122,24 +105,13 @@ public class EnemyStatsManager : MonoBehaviour, IGiveDamage
                 ce.StopAllTasks();
             }
             stopMove = true;
-            //FindAnyObjectByType<AttackSwitch>().StopEveryPointTask();
-            //FindAnyObjectByType<PlayerControl>().CanMove = false;
-            //FindAnyObjectByType<PlayerDamageDetector>().Active = false;
-            //FindAnyObjectByType<CutScene>().StopPlayer();
-            //CutScene.SlowMotion(0.2f);
-
-            //FindAnyObjectByType<PlayerControl>().transform.rotation = Quaternion.Euler(0, 0, 0);
-            //bool finishZoom = false;
-            //while (!finishZoom)
-            //{
-            //    finishZoom = FindAnyObjectByType<CameraMagnify>().GoToEnemy(gameObject.transform.position, 5);
-            //    yield return null;
-            //}
             FindAnyObjectByType<CutScene>().FightStageEnd(gameObject.transform.position);
+
             new_parent =new GameObject("Empty_parent");
             new_parent.transform.position = gameObject.transform.position;
             gameObject.transform.parent = new_parent.transform;
             Animation vib_animation = new Animation();
+
             if (IsBoss)
             {
                 for (int i = 0; i < transform.childCount; i++)
@@ -165,18 +137,9 @@ public class EnemyStatsManager : MonoBehaviour, IGiveDamage
             {
                 vib_animation = GetComponent<Animation>();
             }
-            //Animation vib_animation = GetComponent<Animation>();
             vib_animation.Play();
-            //foreach (AnimationState state in vib_animation)
-            //{
-            //    state.wrapMode = WrapMode.Loop;
-            //    state.speed = 2;
-            //}
-            //yield return new WaitForSeconds(0.3f);
-            //Time.timeScale = 1f;
-            //CutScene.ResumeMotion();
 
-            //GameObject newPart = null;
+
             foreach (var eventContainer in WaveManager.Instance.waveData[WaveManager.Instance.WaveCount].events)
             {
                 if (eventContainer.EventType == "UnlockPartEvent")
@@ -192,12 +155,9 @@ public class EnemyStatsManager : MonoBehaviour, IGiveDamage
             WaveManager.Instance.Enemys.Remove(gameObject);
             WaveManager.Instance.EnemyCount -= 1;
         }
-        if (killByPlayer)
+        if (killByPlayer && explode != null)
         {
             PlayerStatsManager.Instance.TryChangeCoin(DropCoin); // DropCoin should be positive
-        }
-        if (explode != null)
-        {
             GameObject particle = Instantiate(explode, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0f), Quaternion.identity);
             ParticleSystem.MainModule main = particle.GetComponent<ParticleSystem>().main;
         }

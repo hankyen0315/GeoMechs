@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI coinTextMesh;
     [SerializeField]
+    private TextMeshProUGUI coinChangeTextMesh;
+    [SerializeField]
     private TextMeshProUGUI livesTextMesh;
     [SerializeField]
     private TextMeshProUGUI ODTextMesh;
@@ -282,11 +284,18 @@ public class UIManager : MonoBehaviour
     private void InitCoinText()
     {
         string coinAmount = PlayerStatsManager.Instance.GetCoin().ToString();
-        ChangeCoinText(coinAmount);
+        ChangeCoinText(coinAmount, 0);
     }
-    public void ChangeCoinText(string coinAmount)
+    public void ChangeCoinText(string coinAmount, int change = 0)
     {
         coinTextMesh.text = coinAmount;
+        if (change != 0)
+        {
+            Color color = change > 0 ? Color.green : Color.red;
+            coinChangeTextMesh.text = (change > 0 ? "+" : "") + change.ToString();
+            coinChangeTextMesh.color = color;
+            coinChangeTextMesh.GetComponent<Animator>().SetTrigger("show");
+        }
     }
 
     private void InitLivesText()
@@ -328,13 +337,13 @@ public class UIManager : MonoBehaviour
         foreach (GameObject enemy in enemyList)
         {
             GameObject enemyImage = Instantiate(enemyImageTemplate, enemyImageLayout.transform);
-            if (enemy.GetComponent<EnemyStatsManager>().Break == null)
+            if (enemy.GetComponent<EnemyStatsManager>().BreakSprite == null)
             {
                 enemyImage.GetComponent<RawImage>().texture = null;
             }
             else
             {
-                enemyImage.GetComponent<RawImage>().texture = enemy.GetComponent<EnemyStatsManager>().Break.texture;
+                enemyImage.GetComponent<RawImage>().texture = enemy.GetComponent<EnemyStatsManager>().BreakSprite.texture;
             }
         }
     }
