@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  range: 3
+  range: 2
   maxDistance: 6
 --- !u!111 &-1220560366721741510
 Animation:

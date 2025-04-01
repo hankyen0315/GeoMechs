@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  range: 3
+  range: 2
   maxDistance: 6
 --- !u!114 &217689920940789478
 MonoBehaviour:

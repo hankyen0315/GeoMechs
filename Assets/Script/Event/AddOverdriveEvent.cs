@@ -15,7 +15,6 @@ public class AddOverdriveEvent : GameEvent
     {
         AudioManager.Instance.PlayPlayerSounds("Get Item");
         PlayerStatsManager.Instance.IncreaseMaxOverdrive();
-        //sad
         UIManager.Instance.ChangeODText((PlayerStatsManager.Instance.GetMaxOverdrive() - PlayerStatsManager.Instance.gameObject.GetComponent<OverdriveManager>().AvailableOverdrives.Count).ToString());
     }
 }
