@@ -23,11 +23,10 @@ public class AssembleManager : MonoBehaviour
 
     private Vector2 mousePosition;
     private float mouseDistance;
-    private GameObject selected;
+    private GameObject rotatingPart;
 
 
-    [HideInInspector]
-    public GameObject ChosenPart;
+
     //GameObject[] frames;
     //public TextMeshProUGUI PartDetailText;
     //public TextMeshProUGUI PriceText;
@@ -46,28 +45,28 @@ public class AssembleManager : MonoBehaviour
             Instance = this;
         }
     }
-    public void SetChosen(GameObject part)
-    {
-        print(part.name + "lmage clicked ");
-        ChosenPart = part;
-        UIManager.Instance.ChangePartDetailText(part);
-        UIManager.Instance.PlayPreviewVideo(part);
-    }
+    //public void SetChosen(GameObject part)
+    //{
+    //    print(part.name + "lmage clicked ");
+    //    ChosenPart = part;
+    //    UIManager.Instance.ChangePartDetailText(part);
+    //    UIManager.Instance.PlayPreviewVideo(part);
+    //}
 
     //call by pointer event
-    public void HighlightChosen(RawImage chosenFrame)
-    {
-        UIManager.Instance.HighlightedChosen(chosenFrame);
-    }
+    //public void HighlightChosen(RawImage chosenFrame)
+    //{
+    //    UIManager.Instance.HighlightedChosen(chosenFrame);
+    //}
 
     public bool BuyPart()
     {
-        if (Instance.ChosenPart == null) return false;
+        if (Selectable.Selected == null) return false;
 
         int partPrice = 0;
-        if (Instance.ChosenPart.GetComponent<Part>())
+        if (Selectable.Selected.GetPartGameObject().GetComponent<Part>())
         {
-            partPrice = Instance.ChosenPart.GetComponent<Part>().Price;
+            partPrice = Selectable.Selected.GetPartGameObject().GetComponent<Part>().Price;
         }
         else
         {
@@ -85,22 +84,26 @@ public class AssembleManager : MonoBehaviour
 
     public void AddPart(GameObject connectPoint, Transform parent, int layerOrder)
     {
-        GameObject newPart = Instantiate(Instance.ChosenPart, connectPoint.transform.position, connectPoint.transform.rotation, parent);
+        GameObject newPart = Instantiate(Selectable.Selected.GetPartGameObject(), connectPoint.transform.position, connectPoint.transform.rotation, parent);
         newPart.GetComponent<Part>().SpriteRenderer.sortingOrder = layerOrder + 1;
         newPart.GetComponent<Part>().ConnectTo = connectPoint;
-
-        newPart.GetComponent<SelectPart>().Select();
+        Selectable.Unselect();
+        newPart.GetComponent<Selectable>().Select();
         RotatePart();
     }
 
     public void RemovePart()
     {
-        GameObject SelectPart = GameObject.FindGameObjectWithTag("SelectPart");
+        GameObject SelectPart = Selectable.Selected.GetPartGameObject();
         if (SelectPart == null) return;
         if (!SelectPart.GetComponent<Part>().IsPartAtTail)
         {
             UIManager.Instance.ShowMessage("Can't remove part not at the end!");
             return;
+        }
+        if (RotationAdjusting)
+        {
+            EndAdjusting();
         }
         if (SelectPart.GetComponent<Part>())
         {
@@ -124,11 +127,11 @@ public class AssembleManager : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
-        if (GameObject.FindGameObjectWithTag("SelectPart") == null) yield break;
-        selected = GameObject.FindGameObjectWithTag("SelectPart");
+        if (Selectable.Selected == null) yield break;
+        rotatingPart = Selectable.Selected.GetPartGameObject();
         RotationAdjusting = true;
         RotationGauge.enabled = true;
-        gameObject.transform.position = selected.transform.position;
+        gameObject.transform.position = rotatingPart.transform.position;
     }
 
 
@@ -143,10 +146,10 @@ public class AssembleManager : MonoBehaviour
     private void RotatingWithMousePosition()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        mouseDistance = Vector2.Distance(new Vector2(mousePosition.x, mousePosition.y), new Vector2(selected.transform.position.x, selected.transform.position.y));
+        mouseDistance = Vector2.Distance(new Vector2(mousePosition.x, mousePosition.y), new Vector2(rotatingPart.transform.position.x, rotatingPart.transform.position.y));
         if (mouseDistance > maxMouseRange || mouseDistance < minMouseRange) return;
 
-        float angleInRad = Mathf.Atan2(mousePosition.y - selected.transform.position.y, mousePosition.x - selected.transform.position.x);
+        float angleInRad = Mathf.Atan2(mousePosition.y - rotatingPart.transform.position.y, mousePosition.x - rotatingPart.transform.position.x);
         float angleInDeg = Mathf.Rad2Deg * angleInRad;
         int sign = (angleInDeg > 0) ? 1 : -1;
         //print("original angle: " + angleInDeg.ToString());
@@ -168,7 +171,7 @@ public class AssembleManager : MonoBehaviour
         //{
         //    angleInDeg = (int)(angleInDeg / minAdjustableAngle) * minAdjustableAngle;
         //}
-        selected.transform.rotation = Quaternion.Euler(0f, 0f, sign*angleInDeg-90);
+        rotatingPart.transform.rotation = Quaternion.Euler(0f, 0f, sign*angleInDeg-90);
 
         if (LeftMouseClick() || NotSelected())
         {
@@ -185,14 +188,14 @@ public class AssembleManager : MonoBehaviour
     }
     private bool NotSelected()
     {
-        return !selected.CompareTag("SelectPart");
+        return rotatingPart != Selectable.Selected.GetPartGameObject();
     }
 
     private void EndAdjusting()
     {
         RotationAdjusting = false;
         RotationGauge.enabled = false;
-        selected.GetComponent<SelectPart>().Unselect();
-        selected = null;
+        Selectable.Unselect();
+        rotatingPart = null;
     }
 }

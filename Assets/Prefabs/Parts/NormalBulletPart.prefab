@@ -89,8 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedImg: {fileID: 21300000, guid: 210201c9bc3362e488fb0533189dd091, type: 3}
-  OriginalSprite: {fileID: 0}
-  selectedScaleUp: 1.5
+  partInfo: {fileID: 3439453766925029835}
 --- !u!114 &7779813559388550012
 MonoBehaviour:
   m_ObjectHideFlags: 0

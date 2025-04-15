@@ -141,9 +141,7 @@ public class AttackSwitch : MonoBehaviour
 
     private void UnselectAll()
     {
-        GameObject selected = GameObject.FindGameObjectWithTag("SelectPart");
-
-        selected?.GetComponent<SelectPart>()?.Unselect();
+        Selectable.Unselect();
     }
 
     private void ShowLastRedCircle()

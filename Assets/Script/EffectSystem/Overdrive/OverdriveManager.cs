@@ -65,7 +65,7 @@ public class OverdriveManager : MonoBehaviour
             UIManager.Instance.ShowMessage("Can't set more parts to overdriven!");
             return;
         }
-        GameObject selected = GameObject.FindGameObjectWithTag("SelectPart");
+        GameObject selected = Selectable.Selected.GetPartGameObject();
         if (selected == null) 
         {
             UIManager.Instance.ShowMessage("Please select one part first!");
@@ -74,7 +74,7 @@ public class OverdriveManager : MonoBehaviour
         selected.GetComponent<Overdrive>().Manager = this;
         AvailableOverdrives.Add(selected.GetComponent<Overdrive>());
         
-        selected.GetComponent<SelectPart>().Unselect();
+        //selected.GetComponent<SelectPart>().Unselect();
         //originalMaterial = selected.GetComponent<Part>().SpriteRenderer.material;
         //selected.GetComponent<Part>().SpriteRenderer.material = selected.GetComponent<Part>().OverdriveMaterial;
         selected.GetComponent<Part>().ToOverdriveMaterial();
@@ -87,7 +87,7 @@ public class OverdriveManager : MonoBehaviour
     public void RemoveOverdrive()
     {
         if (!isPlayer) return;
-        GameObject selected = GameObject.FindGameObjectWithTag("SelectPart");
+        GameObject selected = Selectable.Selected.GetPartGameObject();
         if (selected == null) 
         {
             UIManager.Instance.ShowMessage("Please select one part first!");
@@ -98,7 +98,7 @@ public class OverdriveManager : MonoBehaviour
         {
             AvailableOverdrives.Remove(selected.GetComponent<Overdrive>());
             selected.GetComponent<Overdrive>().Manager = null;
-            selected.GetComponent<SelectPart>().Unselect();
+            //selected.GetComponent<SelectPart>().Unselect();
             //selected.GetComponent<Part>().SpriteRenderer.material = originalMaterial;
             selected.GetComponent<Part>().ToOriginalMaterial();
             UpdateOverdriveUI();

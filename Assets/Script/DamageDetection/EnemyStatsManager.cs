@@ -144,7 +144,7 @@ public class EnemyStatsManager : MonoBehaviour, IGiveDamage
             {
                 if (eventContainer.EventType == "UnlockPartEvent")
                 {
-                    UIManager.Instance.ShowNewPartObject(gameObject, eventContainer.integerB);
+                    UIManager.Instance.ShowNewPartObject(gameObject, eventContainer.PartID);
                 }
             }
         }

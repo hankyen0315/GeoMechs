@@ -9,6 +9,7 @@ TagManager:
   - RedCircle
   - enemy_side
   - SelectPart
+  - ButtonActionUI
   layers:
   - Default
   - TransparentFX

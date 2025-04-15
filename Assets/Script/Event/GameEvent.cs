@@ -14,13 +14,16 @@ public abstract class GameEvent
         switch (container.EventType)
         {
             case "UnlockPartEvent":
-                e = new UnlockPartEvent(container.integerA, container.integerB);
+                e = new UnlockPartEvent(container.Delay, container.PartID);
                 break;
             case "BonusCoinEvent":
-                e = new BonusCoinEvent(container.integerA, container.integerB);
+                e = new BonusCoinEvent(container.Delay, container.CoinAmount);
+                break;
+            case "UnlockOverdriveEvent":
+                e = new UnlockOverdriveEvent(container.Delay);
                 break;
             case "AddOverdriveEvent":
-                e = new AddOverdriveEvent(container.integerA);
+                e = new AddOverdriveEvent(container.Delay);
                 break;
             default:
                 Debug.Log("no such event");
@@ -36,9 +39,9 @@ public abstract class GameEvent
 public class EventObjectContainer
 {
     public string EventType;
-    public int integerA;
-    public int integerB;
-    public int integerC;
+    public int Delay;
+    public int PartID;
+    public int CoinAmount;
     public string str;
     //QQ only the dumbest way
     //// Add additional fields for constructor parameters

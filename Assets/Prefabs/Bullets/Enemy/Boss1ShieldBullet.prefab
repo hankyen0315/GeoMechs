@@ -204,7 +204,7 @@ MonoBehaviour:
   DestroyOnHit: 0
   DropCoin: 0
   IsBoss: 0
-  IsEnemyEntity: 1
+  IsEnemyEntity: 0
   BreakSprite: {fileID: 0}
   explode: {fileID: 0}
   stopMove: 0

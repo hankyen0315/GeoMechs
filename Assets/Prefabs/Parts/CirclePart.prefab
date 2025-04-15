@@ -30,6 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2973168367465502388}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,7 +41,6 @@ Transform:
   - {fileID: 5066609118226196973}
   - {fileID: 4142729572455276036}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6560232900658597107
 SpriteRenderer:
@@ -59,6 +59,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -111,6 +114,7 @@ MonoBehaviour:
   supplement: Automatically rotating, parts that attached on it would reduce their
     attack interval by 25%, bullets pass through it would reduce their attack power
     by 20%
+  PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 2100000, guid: c756e5905f571e54991b8b27bb2d0a7e, type: 2}
   OriginalMaterial: {fileID: 0}
   ConnectTo: {fileID: 0}
@@ -133,8 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedImg: {fileID: 21300000, guid: ffc869af140d76b4bb582f94508c45a0, type: 3}
-  OriginalSprite: {fileID: 0}
-  selectedScaleUp: 1.5
+  partInfo: {fileID: 544557214321779210}
 --- !u!58 &5973737849248496561
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,13 +146,33 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2973168367465502388}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
   m_Radius: 0.28
 --- !u!114 &6114166025124509884
 MonoBehaviour:
@@ -185,6 +208,7 @@ MonoBehaviour:
   onHitSound: 
   ParticleColor: {r: 0.043137256, g: 1, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
+  HitColorDuration: 0.25
 --- !u!114 &8323040191093965789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,13 +248,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4097950698435326894}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7678098264212678846}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1792593078228226329
 SpriteRenderer:
@@ -249,6 +273,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -289,6 +316,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7678098264212678846}
     m_Modifications:
     - target: {fileID: 388191284459725744, guid: 7b4afcd5c4122b44ca46dc6c25e06be8, type: 3}
@@ -340,6 +368,9 @@ PrefabInstance:
       value: CircleRed (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b4afcd5c4122b44ca46dc6c25e06be8, type: 3}
 --- !u!4 &5066609118226196973 stripped
 Transform:
@@ -351,6 +382,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7678098264212678846}
     m_Modifications:
     - target: {fileID: 388191284459725744, guid: 7b4afcd5c4122b44ca46dc6c25e06be8, type: 3}
@@ -402,6 +434,9 @@ PrefabInstance:
       value: CircleRed (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b4afcd5c4122b44ca46dc6c25e06be8, type: 3}
 --- !u!4 &7062516863521637865 stripped
 Transform:
@@ -413,6 +448,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7678098264212678846}
     m_Modifications:
     - target: {fileID: 388191284459725744, guid: 7b4afcd5c4122b44ca46dc6c25e06be8, type: 3}
@@ -464,6 +500,9 @@ PrefabInstance:
       value: CircleRed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b4afcd5c4122b44ca46dc6c25e06be8, type: 3}
 --- !u!4 &7794947830515543847 stripped
 Transform:

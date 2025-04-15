@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-//using UnityEditor.Experimental.GraphView;
-//using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using UnityEngine.Video;
 
 public class UIManager : MonoBehaviour
@@ -34,6 +32,9 @@ public class UIManager : MonoBehaviour
     private GameObject bossHealthBar;
     [SerializeField]
     private Image ODMeterImage;
+
+    [SerializeField]
+    private GameObject[] overdriveUI;
 
     [SerializeField]
     private Radar radar;
@@ -73,8 +74,6 @@ public class UIManager : MonoBehaviour
     private GameObject prevPartBtn;
     
 
-    public delegate void UIAction();
-    public static UIAction pendingAction = null;
 
     [SerializeField]
     private TextMeshProUGUI PartDetailText;
@@ -92,7 +91,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private WaveManager waveManager;
     public int UnlockedPartAmount;
-    private int shownPartAmount = 6;
+    private int shownPartAmount = 7;
     private int currentFirstPartID = 0;
     public Transform CollectedPosition;
 
@@ -109,13 +108,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        if (pendingAction != null)
-        {
-            pendingAction();
-        }   
-    }
 
     private void Start()
     {
@@ -126,19 +118,18 @@ public class UIManager : MonoBehaviour
         InitCoinText();
         InitLivesText();
         InitODText();
-        //InitRadarText();
-        InitProgressBar();
-        //CountUnlock();
+        totalWaveCount = waveManager.waveData.Length;
+        //InitProgressBar();
     }
 
 
 
 
-    public void ChangePartDetailText(GameObject part)
+    public void ChangePartDetailText(Dictionary<string, string> detail)
     {
         PartDetailText.text = "";
-        Dictionary<string, string> chosenPartDetail = part.GetComponent<Part>().GetPartDetail();
-        foreach (var (key, value) in chosenPartDetail)
+        //Dictionary<string, string> chosenPartDetail = part.GetComponent<Part>().GetPartDetail();
+        foreach (var (key, value) in detail)
         {
             if (value != "")
             {
@@ -157,13 +148,18 @@ public class UIManager : MonoBehaviour
         chosenFrame.enabled = true;
     }
 
-    public void PlayPreviewVideo(GameObject part)
+    public void PlayPreviewVideo(VideoClip clip)
     {
         VideoFrame.SetActive(true);
-        VideoFrame.GetComponentInChildren<VideoPlayer>().clip = part.GetComponent<Part>().PreviewVideo;
+        VideoFrame.GetComponentInChildren<VideoPlayer>().clip = clip;
         VideoFrame.GetComponentInChildren<VideoPlayer>().Play();
         
     }
+    public void StopPreviewVideo()
+    {
+        VideoFrame.GetComponentInChildren<VideoPlayer>().Stop();
+        VideoFrame.SetActive(false);
+    } 
 
     public void UpdatePlayerHealthBar(float ratio)
     {
@@ -184,38 +180,38 @@ public class UIManager : MonoBehaviour
         bossHealthBar.SetActive(false);
     }
 
-    private void InitProgressBar()
-    {
-        WaveData[] datas = waveManager.waveData;
-        totalWaveCount = datas.Length;
-        waveLengthUnit = progressBar.rectTransform.rect.height / totalWaveCount;
+    //private void InitProgressBar()
+    //{
+    //    WaveData[] datas = waveManager.waveData;
+    //    totalWaveCount = datas.Length;
+    //    waveLengthUnit = progressBar.rectTransform.rect.height / totalWaveCount;
         
-        for (int i = 0; i < datas.Length; i++)
-        {
-            Texture icon = null;
-            switch (datas[i].Type)
-            {
-                case WaveType.Boss:
-                    icon = BossIcon;
-                    break;
-                //case WaveType.MidBoss:
-                //    icon = MidBossIcon;
-                //    break;
-                //case WaveType.Normal:
-                //    break;
-                //case WaveType.Prepare:
-                //    icon = PrepareIcon;
-                //    break;
-                default:
-                    break;
-            }
-            if (icon == null) continue;
-            RectTransform rect = startPoint;
-            //rect.position += new Vector3(0, waveLengthUnit*i);
-            GameObject obj = Instantiate(iconObject ,rect.position + new Vector3(0, waveLengthUnit * i), Quaternion.identity, progressBar.transform);
-            obj.GetComponent<RawImage>().texture = icon;
-        }
-    }
+    //    for (int i = 0; i < datas.Length; i++)
+    //    {
+    //        Texture icon = null;
+    //        switch (datas[i].Type)
+    //        {
+    //            case WaveType.Boss:
+    //                icon = BossIcon;
+    //                break;
+    //            //case WaveType.MidBoss:
+    //            //    icon = MidBossIcon;
+    //            //    break;
+    //            //case WaveType.Normal:
+    //            //    break;
+    //            //case WaveType.Prepare:
+    //            //    icon = PrepareIcon;
+    //            //    break;
+    //            default:
+    //                break;
+    //        }
+    //        if (icon == null) continue;
+    //        RectTransform rect = startPoint;
+    //        //rect.position += new Vector3(0, waveLengthUnit*i);
+    //        GameObject obj = Instantiate(iconObject ,rect.position + new Vector3(0, waveLengthUnit * i), Quaternion.identity, progressBar.transform);
+    //        obj.GetComponent<RawImage>().texture = icon;
+    //    }
+    //}
 
     //private void CountUnlock()
     //{
@@ -373,7 +369,13 @@ public class UIManager : MonoBehaviour
             nextPartBtn.SetActive(true);
         }
     }
-
+    public void ShowNewPartObject(GameObject enemy, int ID)
+    {
+        if (partPanel.transform.GetChild(ID).gameObject.GetComponentInChildren<AddPart>())
+        {
+            partPanel.transform.GetChild(ID).gameObject.GetComponentInChildren<AddPart>().Part(enemy.transform.position);
+        }
+    }
 
     //temp solution
     public void ShowNextPart()
@@ -390,31 +392,7 @@ public class UIManager : MonoBehaviour
             nextPartBtn.SetActive(false);
         }
     }
-    public void ShowNewPartObject(GameObject enemy, int ID)
-    {
-        //if (partPanel.transform.GetChild(ID).gameObject.GetComponentInChildren<AddPart>())
-        //{
-        //    GameObject NewPartObject = partPanel.transform.GetChild(ID).gameObject.GetComponentInChildren<AddPart>().Part();
-        //    GameObject newPart = Instantiate(NewPartObject, enemy.transform.position, enemy.transform.rotation);
-        //    for (int i = 0; i < newPart.transform.childCount; i++)
-        //    {
-        //        if (newPart.transform.GetChild(i).CompareTag("RedCircle"))
-        //        {
-        //            newPart.transform.GetChild(i).gameObject.SetActive(false);
-        //        }
-        //    }
-        //    print("newPart = " + newPart);
-        //    return newPart;
-        //}
-        //else
-        //{
-        //    return null;
-        //}
-        if (partPanel.transform.GetChild(ID).gameObject.GetComponentInChildren<AddPart>())
-        {
-            partPanel.transform.GetChild(ID).gameObject.GetComponentInChildren<AddPart>().Part(enemy.transform.position);
-        }
-    }
+
     public void ShowPrevPart()
     {
         partPanel.transform.GetChild(currentFirstPartID-1).gameObject.SetActive(true);
@@ -429,6 +407,17 @@ public class UIManager : MonoBehaviour
             nextPartBtn.SetActive(true);
         }
     }
+
+
+    public void ShowOverdriveUI()
+    {
+        for (int i = 0; i < overdriveUI.Length; i++)
+        {
+            overdriveUI[i].SetActive(true);
+        }
+    }
+
+
 
 
 }

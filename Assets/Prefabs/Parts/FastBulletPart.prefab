@@ -89,8 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedImg: {fileID: 21300000, guid: 03462a5f1d998de48bfb0c4f9b31ca54, type: 3}
-  OriginalSprite: {fileID: 0}
-  selectedScaleUp: 1.5
+  partInfo: {fileID: 3439453766925029835}
 --- !u!114 &3616607698544069218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +107,7 @@ MonoBehaviour:
   onHitSound: 
   ParticleColor: {r: 0.043137256, g: 1, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
+  HitColorDuration: 0.25
 --- !u!114 &2983850737903911507
 MonoBehaviour:
   m_ObjectHideFlags: 0
