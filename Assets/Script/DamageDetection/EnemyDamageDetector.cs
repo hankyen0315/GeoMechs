@@ -34,7 +34,7 @@ public class EnemyDamageDetector : DamageDetector
         {
             GameObject particle = Instantiate(OnHitParticle, new Vector3(contactPoint.x, contactPoint.y, 0f), Quaternion.identity);
             ParticleSystem.MainModule main = particle.GetComponent<ParticleSystem>().main;
-            main.startColor = ParticleColor;
+            //main.startColor = ParticleColor;
         }
         if (GetComponent<EnemyStatsManager>().IsEnemyEntity && stillAlive) 
         {

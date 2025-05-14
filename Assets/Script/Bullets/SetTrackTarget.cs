@@ -26,6 +26,7 @@ public class SetTrackTarget : MonoBehaviour
             if (collision.gameObject.GetComponent(typeName) as MonoBehaviour == null) continue;
             if (trackBullet.Target == null)
             {
+                Debug.Log("Target is null");
                 bool trackOtherTarget = TrackTargetList.Count <= TargetListCapacity || TrackTargetList.Count >= TrackSameThreshold;
                 if (TrackTargetList.Contains(collision.gameObject) && trackOtherTarget) continue;
                 if (HittedTargetList.Contains(collision.gameObject)) continue;

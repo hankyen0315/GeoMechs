@@ -9,7 +9,7 @@ public abstract class DamageDetector : MonoBehaviour
     public GameObject OnHitParticle;
     [SerializeField]
     protected string onHitSound = "";
-    public Color ParticleColor= Color.white;
+    //public Color ParticleColor= Color.white;
     public Color HitColor = Color.white;
     public float HitColorDuration = 0.25f;
     private Color originalColor;

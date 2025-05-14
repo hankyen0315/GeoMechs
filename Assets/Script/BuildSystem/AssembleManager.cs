@@ -113,6 +113,7 @@ public class AssembleManager : MonoBehaviour
         connectTo.GetComponent<SpriteRenderer>().enabled = true;
         connectTo.GetComponent<CircleCollider2D>().enabled = true;
         connectTo.tag = "RedCircle";
+        Selectable.Unselect();
         Destroy(SelectPart);
     }
 

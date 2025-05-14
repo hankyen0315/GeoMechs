@@ -22,7 +22,7 @@ public class BossDamageDetector : DamageDetector
 
         GameObject particle = Instantiate(OnHitParticle, new Vector3(contactPoint.x,contactPoint.y,0f), Quaternion.identity);
         ParticleSystem.MainModule main = particle.GetComponent<ParticleSystem>().main;
-        main.startColor = ParticleColor;
+        //main.startColor = ParticleColor;
         particle.GetComponent<ParticleSystem>().Play();
     }
 }
