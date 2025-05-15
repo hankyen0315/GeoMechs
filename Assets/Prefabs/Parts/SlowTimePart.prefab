@@ -210,8 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRenderer: {fileID: 7833483854127305640}
   Price: 225
-  supplement: Shoot slow time bullet, that creates a area, where enemy or their bullets
-    would be slowed down.
+  supplement: 
+  OverdriveAbility: Affected area 2x bigger
   PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 2100000, guid: 8ea690b91427ae745afa68c8a0c7569e, type: 2}
   OriginalMaterial: {fileID: 0}
@@ -326,7 +326,6 @@ MonoBehaviour:
   Active: 1
   OnHitParticle: {fileID: 0}
   onHitSound: 
-  ParticleColor: {r: 0.043137256, g: 1, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25
 --- !u!1001 &6975540895484675666

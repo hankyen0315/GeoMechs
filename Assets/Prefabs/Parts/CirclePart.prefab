@@ -111,9 +111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRenderer: {fileID: 1792593078228226329}
   Price: 350
-  supplement: Automatically rotating, parts that attached on it would reduce their
-    attack interval by 25%, bullets pass through it would reduce their attack power
-    by 20%
+  supplement: parts connected reduce Attack Interval by 25%, bullets passing through
+    reduce Attack Power by 20%
+  OverdriveAbility: rotate faster, reduce part connected Attack Interval by 100%
   PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 2100000, guid: c756e5905f571e54991b8b27bb2d0a7e, type: 2}
   OriginalMaterial: {fileID: 0}
@@ -206,7 +206,6 @@ MonoBehaviour:
   Active: 1
   OnHitParticle: {fileID: 4399230773560567937, guid: 8c706322cb317ee46b9ced4b73b93edc, type: 3}
   onHitSound: 
-  ParticleColor: {r: 0.043137256, g: 1, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25
 --- !u!114 &8323040191093965789

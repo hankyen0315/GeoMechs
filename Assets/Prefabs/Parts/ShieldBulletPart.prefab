@@ -123,7 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRenderer: {fileID: 1913151582280284604}
   Price: 175
-  supplement: Shoot shield bullet, can block enemy's bullet(except for laser)
+  supplement: 
+  OverdriveAbility: shield bullet become larger
   PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 2100000, guid: 8bb4d1ba2cdd723459582770eefe04ab, type: 2}
   OriginalMaterial: {fileID: 0}
@@ -207,7 +208,6 @@ MonoBehaviour:
   Active: 1
   OnHitParticle: {fileID: 4399230773560567937, guid: 8c706322cb317ee46b9ced4b73b93edc, type: 3}
   onHitSound: 
-  ParticleColor: {r: 0.043137256, g: 1, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25
 --- !u!114 &9148630274550436045

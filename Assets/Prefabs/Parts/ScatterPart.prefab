@@ -196,8 +196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRenderer: {fileID: 7721980526877591753}
   Price: 200
-  supplement: Bullet pass through it would be increase the amount by 1, reduced the
-    attack power by 40%
+  supplement: +1 to bullet passing through, reduce their Attack Power by 40%
+  OverdriveAbility: +3 to bullet passing through
   PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 2100000, guid: 49bee7fcff591bb40a20e385c643ae24, type: 2}
   OriginalMaterial: {fileID: 0}
@@ -296,7 +296,6 @@ MonoBehaviour:
   Active: 1
   OnHitParticle: {fileID: 4399230773560567937, guid: 8c706322cb317ee46b9ced4b73b93edc, type: 3}
   onHitSound: 
-  ParticleColor: {r: 0.043137256, g: 1, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25
 --- !u!114 &5037849810204763599

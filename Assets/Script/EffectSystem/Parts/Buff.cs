@@ -14,6 +14,7 @@ public class Buff : Part
         detail.Add("Price", Price.ToString());
         detail.Add("Part Durability", GetComponent<PartStatsManager>().GetHealth().ToString());
         detail.Add("Supplement", supplement);
+        detail.Add("Overdrive", OverdriveAbility);
         return detail;
     }
 }

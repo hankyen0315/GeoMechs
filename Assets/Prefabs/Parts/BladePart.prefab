@@ -279,6 +279,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 6232517619345015105}
   Price: 150
   supplement: give damage to enemy in melee
+  OverdriveAbility: become longer
   PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 2100000, guid: 0267aea508eb3e345a064a11ed2bc6b7, type: 2}
   OriginalMaterial: {fileID: 0}
@@ -301,7 +302,6 @@ MonoBehaviour:
   Active: 1
   OnHitParticle: {fileID: 4399230773560567937, guid: 8c706322cb317ee46b9ced4b73b93edc, type: 3}
   onHitSound: 
-  ParticleColor: {r: 0, g: 1, b: 0.08488488, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25
 --- !u!114 &80155419130281594

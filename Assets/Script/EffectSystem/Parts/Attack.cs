@@ -39,11 +39,12 @@ public class Attack : Part
         Dictionary<string, string> detail = new Dictionary<string, string>();
         //detail.Add("Bullet Name", Bullet.name);
         detail.Add("Attack Power", Bullet.GetComponentInChildren<Bullet>().AttackPower.ToString());
-        detail.Add("Bullet speed", Bullet.GetComponentInChildren<Bullet>().Speed.ToString());
+        detail.Add("Bullet Speed", Bullet.GetComponentInChildren<Bullet>().Speed.ToString());
         detail.Add("Attack Interval", AttackInterval.ToString()+"s");
         detail.Add("Price", Price.ToString());
         detail.Add("Part Durability", GetComponent<PartStatsManager>().GetHealth().ToString());
         detail.Add("Supplement", supplement);
+        detail.Add("Overdrive", OverdriveAbility);
 
         return detail;
     }

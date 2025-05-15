@@ -55,6 +55,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 3982594962449270845}
   Price: 150
   supplement: 
+  OverdriveAbility: shoot faster, move faster
   PreviewVideo: {fileID: 32900000, guid: 63ef94de925da3a4c87eda2368bda89c, type: 3}
   OverdriveMaterial: {fileID: 2100000, guid: 85aa7fe95bcfd0f479dcbac64bda8f8a, type: 2}
   OriginalMaterial: {fileID: 0}
@@ -105,7 +106,6 @@ MonoBehaviour:
   Active: 1
   OnHitParticle: {fileID: 4399230773560567937, guid: 8c706322cb317ee46b9ced4b73b93edc, type: 3}
   onHitSound: 
-  ParticleColor: {r: 0.043137256, g: 1, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25
 --- !u!114 &2983850737903911507

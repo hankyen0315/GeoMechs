@@ -111,6 +111,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 3811948033395412475}
   Price: 350
   supplement: Shoot laser that can penetrate basically everything.
+  OverdriveAbility: Everlasting laser
   PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 2100000, guid: 32b1f9146ad230344ac8f5649c8c3c95, type: 2}
   OriginalMaterial: {fileID: 0}
@@ -176,7 +177,6 @@ MonoBehaviour:
   Active: 1
   OnHitParticle: {fileID: 4399230773560567937, guid: 8c706322cb317ee46b9ced4b73b93edc, type: 3}
   onHitSound: 
-  ParticleColor: {r: 0.043137256, g: 1, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25
 --- !u!114 &1414663417120845170

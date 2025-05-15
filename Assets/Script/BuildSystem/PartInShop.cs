@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.Video;
 using Unity.VisualScripting;
+using TMPro;
 
 
 public class PartInShop : Selectable
@@ -11,6 +12,8 @@ public class PartInShop : Selectable
     private Part partInfo;
     [SerializeField]
     private RawImage selectedFrame;
+    [SerializeField]
+    private TextMeshProUGUI newText;
     protected override void Awake()
     {
         base.Awake();
@@ -19,6 +22,11 @@ public class PartInShop : Selectable
     protected override void Highlight()
     {
         selectedFrame.enabled = true;
+        if (newText != null)
+        {
+            newText.text = "";
+        }
+        
     }
     protected override void Unhighlight()
     {

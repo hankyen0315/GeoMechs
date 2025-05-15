@@ -61,6 +61,10 @@ public class AssembleManager : MonoBehaviour
 
     public bool BuyPart()
     {
+        if (RotationAdjusting)
+        {
+            EndAdjusting();
+        }
         if (Selectable.Selected == null) return false;
 
         int partPrice = 0;

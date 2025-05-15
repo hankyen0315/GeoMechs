@@ -9,6 +9,8 @@ public abstract class Part : MonoBehaviour
     public int Price;
     [TextArea()]
     public string supplement = "";
+    [TextArea()]
+    public string OverdriveAbility = "";
 
     public VideoClip PreviewVideo;
 
