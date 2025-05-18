@@ -55,7 +55,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 3982594962449270845}
   Price: 150
   supplement: 
-  OverdriveAbility: 2x Attack Power
+  OverdriveAbility: 4x Bullet Size
   PreviewVideo: {fileID: 32900000, guid: 0a515973988314040a8bf31fcaeb6722, type: 3}
   OverdriveMaterial: {fileID: 2100000, guid: 4f7a910915529414b9f9f3e61c4df425, type: 2}
   OriginalMaterial: {fileID: 0}
@@ -106,8 +106,7 @@ MonoBehaviour:
   duration: 10
   Manager: {fileID: 0}
   glowIntensity: 8
-  attackUpFactor: 2
-  powerupBullet: {fileID: 0}
+  ScaleUpFactor: 4
 --- !u!61 &3211018111137984582
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -167,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 1
-  OnHitParticle: {fileID: 4399230773560567937, guid: 8c706322cb317ee46b9ced4b73b93edc, type: 3}
+  OnHitParticle: {fileID: 4399230773560567937, guid: ce0db7ed362c9ab4ea9e0d629f24ac2d, type: 3}
   onHitSound: 
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25

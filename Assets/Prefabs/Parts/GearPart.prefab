@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 1
-  OnHitParticle: {fileID: 4399230773560567937, guid: 8c706322cb317ee46b9ced4b73b93edc, type: 3}
+  OnHitParticle: {fileID: 4399230773560567937, guid: ce0db7ed362c9ab4ea9e0d629f24ac2d, type: 3}
   onHitSound: 
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25

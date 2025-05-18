@@ -64,8 +64,9 @@ public abstract class Selectable : MonoBehaviour, IPointerClickHandler
         ShowAvailableActions();
         Dictionary<string, string> detail = GetPartDetail();
         UIManager.Instance.ChangePartDetailText(detail);
-        VideoClip previewVideo = GetPreviewVideo();
-        UIManager.Instance.PlayPreviewVideo(previewVideo);
+        //todo: finish editing preview video, disable for now
+        //VideoClip previewVideo = GetPreviewVideo();
+        //UIManager.Instance.PlayPreviewVideo(previewVideo);
     }
 
     public static void Unselect()

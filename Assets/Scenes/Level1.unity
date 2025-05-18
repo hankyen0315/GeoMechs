@@ -1463,11 +1463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0021362305
+      value: -0.002090454
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143.99486
+      value: -143.99489
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767180165065, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3841,13 +3841,17 @@ PrefabInstance:
       propertyPath: overdriveIcon
       value: 
       objectReference: {fileID: 196006598}
+    - target: {fileID: 3817354384891269139, guid: 0cde43a759dba114f9462d2bad24411f, type: 3}
+      propertyPath: OnHitParticle
+      value: 
+      objectReference: {fileID: 4399230773560567937, guid: 4f7c43a4a6ffc334f9573e3046df9e59, type: 3}
     - target: {fileID: 6106296291475283472, guid: 0cde43a759dba114f9462d2bad24411f, type: 3}
       propertyPath: BlackImage
       value: 
       objectReference: {fileID: 1042231831}
     - target: {fileID: 6106296291475283472, guid: 0cde43a759dba114f9462d2bad24411f, type: 3}
       propertyPath: StartNeedClose.Array.size
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6106296291475283472, guid: 0cde43a759dba114f9462d2bad24411f, type: 3}
       propertyPath: 'StartNeedOpen.Array.data[0]'
