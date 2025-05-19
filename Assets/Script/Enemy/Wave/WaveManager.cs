@@ -180,6 +180,12 @@ public class WaveManager : MonoBehaviour
 
     private void Prepare()
     {
+        if (clearedByPlayer)
+        {
+            // clear by player means special event trigger by the developer, normal player should not use this
+            PlayerControl player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+            player.CanMove = false;
+        }
         StartCoroutine(TransitionAnimation(attackSwitch.StopAttack));
     }
     private IEnumerator TransitionAnimation(System.Action onAnimationEnd)
@@ -220,6 +226,7 @@ public class WaveManager : MonoBehaviour
 
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Debug.Log("player exit");
         float progress = 0f;
         float rotateSpeed = 2f;
         Quaternion from = player.transform.rotation;
@@ -234,6 +241,7 @@ public class WaveManager : MonoBehaviour
         bool playerIsOutside = false;
         while (!playerIsOutside)
         {
+            Debug.Log("player go out of screen");
             player.transform.Translate(Vector3.up * playerExitSpeed * Time.deltaTime);
             Vector3 viewport = Camera.main.WorldToViewportPoint(player.transform.position);
             if (viewport.y >= 1.1) playerIsOutside = true;
@@ -264,6 +272,7 @@ public class WaveManager : MonoBehaviour
 
         if (clearedByPlayer)
         {
+
             int coin = 0;
             foreach (EnemyInfo info in waveData[WaveCount].EnemyInfos)
             {
