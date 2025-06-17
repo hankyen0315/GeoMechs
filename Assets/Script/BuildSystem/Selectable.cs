@@ -27,14 +27,17 @@ public abstract class Selectable : MonoBehaviour, IPointerClickHandler
     protected virtual void Awake()
     {
         Buttons = GameObject.FindGameObjectWithTag("ButtonActionUI").GetComponentsInChildren<Button>(true);
+        Debug.Log("i'm : " + gameObject.name + " now awaking");
     }
 
     protected virtual void OnMouseDown()
     {
+        Debug.Log("Mouse down on " + gameObject.name);
         Click();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("Pointer click on " + gameObject.name);
         Click();
     }
 

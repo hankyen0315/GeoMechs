@@ -14,6 +14,7 @@ public class Laser : Bullet
     }
     public override void OnHit()
     {
+        //todo: need to fix the logic, because the laser would not damage other object before it reactivate the collider
         if (Overdriven)
         {
             GetComponent<BoxCollider2D>().enabled = false;

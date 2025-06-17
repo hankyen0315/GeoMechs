@@ -269,29 +269,13 @@ MonoBehaviour:
     events: []
     Type: 3
   - EnemyInfos:
-    - prefab: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
-      number: 3
+    - prefab: {fileID: 1639726462968610675, guid: 0fe90a6e3a3d1e646b3af1b22d17fccb, type: 3}
+      number: 1
       spawnPosition: 0
       SpawnPosition: {fileID: 0}
-      MaxXOffset: 15
+      MaxXOffset: 0
       MaxYOffset: 0
-      spawnTimeInterval: 1
-      timeToNextInfo: 0
-    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
-      number: 2
-      spawnPosition: 2
-      SpawnPosition: {fileID: 0}
-      MaxXOffset: 0
-      MaxYOffset: 10
-      spawnTimeInterval: 1
-      timeToNextInfo: 0
-    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
-      number: 2
-      spawnPosition: 3
-      SpawnPosition: {fileID: 0}
-      MaxXOffset: 0
-      MaxYOffset: 10
-      spawnTimeInterval: 1
+      spawnTimeInterval: 0
       timeToNextInfo: 0
     StartWaitTime: 0
     events: []
@@ -1435,11 +1419,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0028839111
+      value: -0.0025024414
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143.99571
+      value: -143.99535
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002966, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_text

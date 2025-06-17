@@ -1463,11 +1463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0021820068
+      value: -0.0022735596
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143.99498
+      value: -143.99507
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767180165065, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2083,6 +2083,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5727886406801847521, guid: 391aab2f2d464ff4a961b8b70df96121, type: 3}
+      propertyPath: waveData.Array.data[25].events.Array.data[0].PartID
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727886406801847521, guid: 391aab2f2d464ff4a961b8b70df96121, type: 3}
       propertyPath: waveData.Array.data[7].events.Array.data[0].integerB
       value: 3
       objectReference: {fileID: 0}
@@ -2264,7 +2268,7 @@ PrefabInstance:
       objectReference: {fileID: 1330118382179014316, guid: 511988a8a177b22488494e31e94702d0, type: 3}
     - target: {fileID: 5727886406801847521, guid: 391aab2f2d464ff4a961b8b70df96121, type: 3}
       propertyPath: waveData.Array.data[11].EnemyInfos.Array.data[4].number
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5727886406801847521, guid: 391aab2f2d464ff4a961b8b70df96121, type: 3}
       propertyPath: waveData.Array.data[11].EnemyInfos.Array.data[4].prefab
@@ -3073,6 +3077,14 @@ PrefabInstance:
     - target: {fileID: 5727886406801847521, guid: 391aab2f2d464ff4a961b8b70df96121, type: 3}
       propertyPath: waveData.Array.data[11].EnemyInfos.Array.data[0].timeToNextInfo
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727886406801847521, guid: 391aab2f2d464ff4a961b8b70df96121, type: 3}
+      propertyPath: waveData.Array.data[11].EnemyInfos.Array.data[1].timeToNextInfo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727886406801847521, guid: 391aab2f2d464ff4a961b8b70df96121, type: 3}
+      propertyPath: waveData.Array.data[11].EnemyInfos.Array.data[2].timeToNextInfo
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5727886406801847521, guid: 391aab2f2d464ff4a961b8b70df96121, type: 3}
       propertyPath: waveData.Array.data[11].EnemyInfos.Array.data[3].timeToNextInfo

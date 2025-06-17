@@ -127,6 +127,11 @@ public class UIManager : MonoBehaviour
 
     public void ChangePartDetailText(Dictionary<string, string> detail)
     {
+        Debug.Log("change part detail text");
+        Debug.Log(detail);
+        Debug.Log(detail.Count);
+        Debug.Log(PartDetailText);
+        Debug.Log(PartDetailText.text);
         PartDetailText.text = "";
         //Dictionary<string, string> chosenPartDetail = part.GetComponent<Part>().GetPartDetail();
         foreach (var (key, value) in detail)

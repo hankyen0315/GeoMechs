@@ -21,6 +21,12 @@ public class AttackSwitch : MonoBehaviour
     public float PrepareSizeModifier;
     public Image BlackImage;
     private Camera cam;
+    
+    private void Awake()
+    {
+        // make sure the game is in prepare state when the game starts
+        LevelManager.State = LevelState.Prepare;    
+    }
     private void Start()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
