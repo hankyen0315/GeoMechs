@@ -119,6 +119,7 @@ public class UIManager : MonoBehaviour
         InitLivesText();
         InitODText();
         totalWaveCount = waveManager.waveData.Length;
+        waveLengthUnit = progressBar.rectTransform.rect.height / totalWaveCount;
         //InitProgressBar();
     }
 
@@ -230,8 +231,10 @@ public class UIManager : MonoBehaviour
 
     public void UpdateProgressBar(int waveCount)
     {
+        Debug.Log("update progress bar: " + waveCount + " total count:" + totalWaveCount+ "length: " + waveLengthUnit);
+        Debug.Log("fill amount:" + (float)(waveCount / totalWaveCount));
         playerIcon.rectTransform.position = startPoint.position + new Vector3(0f, waveCount * waveLengthUnit);
-        progressBar.fillAmount = waveCount / totalWaveCount;
+        progressBar.fillAmount = (float)waveCount / (float)totalWaveCount;
     }
 
     public void ShowTutorialNextPage()

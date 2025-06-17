@@ -1197,6 +1197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1120587382341658878, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1147043740036463148, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -1467,11 +1471,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0021209717
+      value: -0.07569885
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143.99498
+      value: -144.07146
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767180165065, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchorMax.x

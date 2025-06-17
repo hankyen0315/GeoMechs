@@ -1,16 +1,16 @@
+using System;
 using UnityEngine;
 
-public class TutorialSession : MonoBehaviour
+[Serializable]
+public class TutorialSession
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string SessionName;
+    private TutorialStep[] steps;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+}
+
+[Serializable]
+public class TutorialStep
+{
+    private Action stepAction;
 }
