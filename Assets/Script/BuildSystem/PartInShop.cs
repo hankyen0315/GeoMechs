@@ -14,23 +14,39 @@ public class PartInShop : Selectable
     private RawImage selectedFrame;
     [SerializeField]
     private TextMeshProUGUI newText;
+
+
     protected override void Awake()
     {
         base.Awake();
         availableButtonActions = new AvailableButtonAction[0];
     }
-    protected override void Highlight()
+
+
+    protected override void OnSelected()
     {
         selectedFrame.enabled = true;
         if (newText != null)
         {
             newText.text = "";
         }
-        
+
+        ConnectPoint[] connectPoints = FindObjectsByType<ConnectPoint>(FindObjectsSortMode.None);
+        Debug.Log("ConnectPoints found: " + connectPoints.Length);
+        foreach (ConnectPoint point in connectPoints)
+        {
+            point.gameObject.GetComponent<Animator>().SetBool("PartReady", true);
+        }
+
     }
-    protected override void Unhighlight()
+    protected override void OnUnselected()
     {
         selectedFrame.enabled = false;
+        ConnectPoint[] connectPoints = FindObjectsByType<ConnectPoint>(FindObjectsSortMode.None);
+        foreach (ConnectPoint point in connectPoints)
+        {
+            point.gameObject.GetComponent<Animator>().SetBool("PartReady", false);
+        }
     }
     protected override Dictionary<string, string> GetPartDetail()
     {

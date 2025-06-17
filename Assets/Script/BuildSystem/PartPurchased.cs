@@ -21,12 +21,12 @@ public class PartPurchased: Selectable
                                      AvailableButtonAction.CancelOD };
         originalSprite = partInfo.SpriteRenderer.sprite;
     }
-    protected override void Highlight()
+    protected override void OnSelected()
     {
         partInfo.SpriteRenderer.sprite = SelectedImg;
     }
 
-    protected override void Unhighlight()
+    protected override void OnUnselected()
     {
         partInfo.SpriteRenderer.sprite = originalSprite;
     }

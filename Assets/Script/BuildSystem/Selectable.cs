@@ -63,7 +63,7 @@ public abstract class Selectable : MonoBehaviour, IPointerClickHandler
     public void Select()
     {
         Selected = this;
-        Highlight();
+        OnSelected();
         ShowAvailableActions();
         Dictionary<string, string> detail = GetPartDetail();
         UIManager.Instance.ChangePartDetailText(detail);
@@ -75,7 +75,7 @@ public abstract class Selectable : MonoBehaviour, IPointerClickHandler
     public static void Unselect()
     {
         if (Selected == null) return;
-        Selected.Unhighlight();
+        Selected.OnUnselected();
         Selected.HideAvailableActions();
         UIManager.Instance.ChangePartDetailText(new Dictionary<string, string>()); // clear text
         UIManager.Instance.StopPreviewVideo();
@@ -84,8 +84,8 @@ public abstract class Selectable : MonoBehaviour, IPointerClickHandler
 
 
 
-    protected abstract void Highlight();
-    protected abstract void Unhighlight();
+    protected abstract void OnSelected();
+    protected abstract void OnUnselected();
     protected abstract Dictionary<string, string> GetPartDetail();
     protected abstract VideoClip GetPreviewVideo();
     private void ShowAvailableActions()
