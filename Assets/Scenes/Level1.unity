@@ -897,7 +897,9 @@ MonoBehaviour:
   prevPartBtn: {fileID: 2033276672}
   PartDetailText: {fileID: 0}
   VideoFrame: {fileID: 0}
+  TutorialPanel: {fileID: 0}
   TutorialPages: []
+  AvailablePageAmount: 1
   TutorialPageText: {fileID: 0}
   waveManager: {fileID: 469676716}
   UnlockedPartAmount: 3
@@ -1479,7 +1481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143.99486
+      value: -143.99527
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767180165065, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchorMax.x

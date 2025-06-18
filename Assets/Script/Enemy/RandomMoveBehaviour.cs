@@ -10,22 +10,41 @@ public class RandomMoveBehaviour : MonoBehaviour, IMovable
     float range;
     [SerializeField]
     float maxDistance;
+    [SerializeField]
+    float baseWaitTime;
+    [SerializeField]
+    float randomWaitOffset;
+
+
+    float waitTime;
+    float timer = 0f;
     Vector2 wayPoint;
     MoveState moveState = MoveState.Normal;
+    EnemyStatsManager statsManager;
+
+
 
     void Start()
     {
+        statsManager = GetComponent<EnemyStatsManager>();
+        waitTime = baseWaitTime + Random.Range(-randomWaitOffset, randomWaitOffset);
         SetNewDestination();
     }
 
     
     void Update()
     {
-        if (GetComponent<EnemyStatsManager>().stopMove) return;
+        if (statsManager.stopMove) return;
         transform.position = Vector2.MoveTowards(transform.position, wayPoint, speed * Time.deltaTime);
         if(Vector2.Distance(transform.position, wayPoint) < range)
         {
-            SetNewDestination();
+            timer += Time.deltaTime;
+            if (timer >= waitTime)
+            {
+                timer = 0f;
+                waitTime = baseWaitTime + Random.Range(-randomWaitOffset, randomWaitOffset);
+                SetNewDestination();
+            }
         }
     }
 

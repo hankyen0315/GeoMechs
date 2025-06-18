@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2169431271999616081}
   - component: {fileID: 2347301505406657378}
   - component: {fileID: 5775560983220530729}
+  - component: {fileID: 2352900152433769404}
   m_Layer: 0
   m_Name: NormalEnemy
   m_TagString: enemy_side
@@ -185,7 +186,6 @@ MonoBehaviour:
   Active: 1
   OnHitParticle: {fileID: 4399230773560567937, guid: 8c706322cb317ee46b9ced4b73b93edc, type: 3}
   onHitSound: 
-  ParticleColor: {r: 1, g: 0, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25
 --- !u!114 &1330118382179014310
@@ -225,6 +225,8 @@ MonoBehaviour:
   speed: 2.5
   range: 1
   maxDistance: 6
+  baseWaitTime: 1.5
+  randomWaitOffset: 0.7
 --- !u!114 &1097833034034407929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +260,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 1330118382179014318}
   Price: 0
   supplement: 
+  OverdriveAbility: 
   PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 0}
   OriginalMaterial: {fileID: 0}
@@ -296,6 +299,20 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &2352900152433769404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330118382179014316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584a035204f131e4bb8c307f698ece45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reversed: 1
+  RotateSpeed: 180
 --- !u!1 &1431383560699293720
 GameObject:
   m_ObjectHideFlags: 0

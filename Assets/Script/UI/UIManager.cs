@@ -81,9 +81,11 @@ public class UIManager : MonoBehaviour
     private GameObject VideoFrame;
 
     [SerializeField]
+    private GameObject TutorialPanel;
+    [SerializeField]
     private GameObject[] TutorialPages;
     private int currentPage = 1;
-    private int PageAmount = 2;
+    public int AvailablePageAmount = 1;
     [SerializeField]
     private TextMeshProUGUI TutorialPageText;
 
@@ -231,16 +233,33 @@ public class UIManager : MonoBehaviour
 
     public void UpdateProgressBar(int waveCount)
     {
-        Debug.Log("update progress bar: " + waveCount + " total count:" + totalWaveCount+ "length: " + waveLengthUnit);
-        Debug.Log("fill amount:" + (float)(waveCount / totalWaveCount));
         playerIcon.rectTransform.position = startPoint.position + new Vector3(0f, waveCount * waveLengthUnit);
         progressBar.fillAmount = (float)waveCount / (float)totalWaveCount;
+    }
+    public void ShowTutorial()
+    {
+        Debug.Log("show tutorial panel");
+        if (TutorialPages.Length == 0) return;
+        TutorialPanel.SetActive(true);
+        TutorialPanel.GetComponent<Animator>().SetBool("show", true);
+        int pageAmount = Mathf.Min(TutorialPages.Length, AvailablePageAmount);
+        currentPage = 1;
+        TutorialPageText.text = currentPage.ToString() + "/" + pageAmount.ToString();
+        for (int i = 0; i < TutorialPages.Length; i++)
+        {
+            TutorialPages[i].SetActive(false);
+        }
+        TutorialPages[0].SetActive(true);
+    }
+    public void CloseTutorial()
+    {
+        TutorialPanel.GetComponent<Animator>().SetBool("show", false);
     }
 
     public void ShowTutorialNextPage()
     {
-        if (currentPage == PageAmount) return;
-        TutorialPageText.text = (currentPage+1).ToString() + "/" + PageAmount.ToString();
+        if (currentPage == AvailablePageAmount) return;
+        TutorialPageText.text = (currentPage+1).ToString() + "/" + AvailablePageAmount.ToString();
         TutorialPages[currentPage - 1].SetActive(false);
         currentPage++;
         TutorialPages[currentPage-1].SetActive(true);
@@ -248,7 +267,7 @@ public class UIManager : MonoBehaviour
     public void ShowTutorialPrevPage()
     {
         if (currentPage == 1) return;
-        TutorialPageText.text = (currentPage - 1).ToString() + "/" + PageAmount.ToString();
+        TutorialPageText.text = (currentPage - 1).ToString() + "/" + AvailablePageAmount.ToString();
         TutorialPages[currentPage-1].SetActive(false);
         currentPage--;
         TutorialPages[currentPage-1].SetActive(true);
@@ -321,15 +340,6 @@ public class UIManager : MonoBehaviour
 
     public void ShowEnemyList()
     {
-        //if (!PlayerStatsManager.Instance.CanUseRadar) 
-        //{
-        //    ShowMessage("can't use radar"); 
-        //    return;
-        //}
-
-        //ChangeRadarText(PlayerStatsManager.Instance.LeftRadarChance.ToString());
-        //PlayerStatsManager.Instance.UseRadar();
-
         radar.gameObject.GetComponentInChildren<Radarline>(true).gameObject.SetActive(true);
         for (int i = 0; i < enemyImageLayout.transform.childCount; i++)
         {
