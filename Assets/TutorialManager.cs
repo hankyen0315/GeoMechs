@@ -27,7 +27,7 @@ public class TutorialManager : MonoBehaviour
             new TutorialStep
             {
                 stepID = 0,
-                condition = () => (LevelManager.State == LevelState.Prepare && Time.timeSinceLevelLoad > 2f), // Replace with actual condition
+                condition = () => (LevelManager.State == LevelState.Prepare && Time.timeSinceLevelLoad > 1f), // Replace with actual condition
                 action = () => UIManager.Instance.ShowTutorial()
             },
             new TutorialStep
