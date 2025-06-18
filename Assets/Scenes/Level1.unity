@@ -1233,6 +1233,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -119.38562
       objectReference: {fileID: 0}
+    - target: {fileID: 2433241016933192751, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 507e5c35f3f563f4badbda915b5fc0b8, type: 2}
     - target: {fileID: 2642326759682318057, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -1295,7 +1299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4130850771611329116, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4312636501742256163, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_IsActive
@@ -1455,11 +1459,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588766921850916, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_Size
-      value: 1
+      value: 0.2924993
       objectReference: {fileID: 0}
     - target: {fileID: 6798588766921850916, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 1.1770132
       objectReference: {fileID: 0}
     - target: {fileID: 6798588766921850939, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1471,11 +1475,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.07569885
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -144.07146
+      value: -143.99486
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767180165065, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1519,11 +1523,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588768215951634, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_Size
-      value: 1
+      value: 0.4999947
       objectReference: {fileID: 0}
     - target: {fileID: 6798588768215951634, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 11477.686
       objectReference: {fileID: 0}
     - target: {fileID: 6798588768882347713, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1639,6 +1643,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8826844828432707777, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092808516650782801, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 507e5c35f3f563f4badbda915b5fc0b8, type: 2}
+    - target: {fileID: 9092808516650782801, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
+      propertyPath: 'm_DirectAudioMutes.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092808516650782801, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
+      propertyPath: 'm_DirectAudioVolumes.Array.data[0]'
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
