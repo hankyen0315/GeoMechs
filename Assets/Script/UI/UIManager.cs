@@ -255,6 +255,17 @@ public class UIManager : MonoBehaviour
     {
         TutorialPanel.GetComponent<Animator>().SetBool("show", false);
     }
+    public void ShowTutorialPage(int pageIndex)
+    {
+        if (pageIndex < 1 || pageIndex > AvailablePageAmount) return;
+        TutorialPageText.text = pageIndex.ToString() + "/" + AvailablePageAmount.ToString();
+        for (int i = 0; i < TutorialPages.Length; i++)
+        {
+            TutorialPages[i].SetActive(false);
+        }
+        currentPage = pageIndex;
+        TutorialPages[currentPage - 1].SetActive(true);
+    }
 
     public void ShowTutorialNextPage()
     {

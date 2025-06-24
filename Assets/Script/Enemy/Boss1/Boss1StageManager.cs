@@ -33,7 +33,7 @@ public class Boss1StageManager : BossStageManager
             ce.StopAllTasks();
         }
         GetComponent<DamageDetector>().Active = false;
-        anim.SetBool("idle", true);
+        //anim.SetBool("idle", true);
     }
 
     protected override void Transformation()

@@ -104,6 +104,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 5243124671537481148}
   Price: 0
   supplement: 
+  OverdriveAbility: 
   PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 0}
   OriginalMaterial: {fileID: 0}
@@ -249,7 +250,6 @@ MonoBehaviour:
   Active: 1
   OnHitParticle: {fileID: 4399230773560567937, guid: 8c706322cb317ee46b9ced4b73b93edc, type: 3}
   onHitSound: 
-  ParticleColor: {r: 1, g: 0, b: 0, a: 1}
   HitColor: {r: 1, g: 1, b: 1, a: 1}
   HitColorDuration: 0.25
 --- !u!114 &8445394084864170287
@@ -360,6 +360,8 @@ MonoBehaviour:
   speed: 1.5
   range: 2
   maxDistance: 6
+  baseWaitTime: 0
+  randomWaitOffset: 0
 --- !u!111 &-1220560366721741510
 Animation:
   m_ObjectHideFlags: 0
@@ -496,6 +498,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 2415009869405302865}
   Price: 0
   supplement: 
+  OverdriveAbility: 
   PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 0}
   OriginalMaterial: {fileID: 0}
@@ -518,7 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Auto: 1
   triggerInterval: 0.5
-  bulletInterval: 0.05
+  bulletInterval: 0.2
   randomTimeOffsetRange: 0
   isEnemy: 1
   AutoState: 0
@@ -665,6 +668,7 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 0}
   Price: 0
   supplement: 
+  OverdriveAbility: 
   PreviewVideo: {fileID: 0}
   OverdriveMaterial: {fileID: 0}
   OriginalMaterial: {fileID: 0}

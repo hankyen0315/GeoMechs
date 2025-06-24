@@ -1369,34 +1369,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6725535420572658785, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725535420572658785, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725535420572658785, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725535420572658785, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725535420572658785, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowTutorialNextPage
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725535420572658785, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6725535420572658785, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6798588766838712818, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1419,11 +1391,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0020599365
+      value: -0.0027313232
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143.99489
+      value: -143.99556
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002966, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_text
@@ -1650,7 +1622,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0577, y: 0.1589, z: 0}
-  m_LocalScale: {x: 0.5959459, y: 0.5078724, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1921908423}
@@ -2841,13 +2813,13 @@ MonoBehaviour:
     events: []
     Type: 3
   - EnemyInfos:
-    - prefab: {fileID: 2585039604538041713, guid: bd369f80b777c964984715c5fab43aec, type: 3}
+    - prefab: {fileID: 1639726462968610675, guid: d8c07909d881d5541bbbc3c2c9b784b8, type: 3}
       number: 1
       spawnPosition: 0
       SpawnPosition: {fileID: 2011276011}
-      MaxXOffset: 10
+      MaxXOffset: 0
       MaxYOffset: 0
-      spawnTimeInterval: 2
+      spawnTimeInterval: 0
       timeToNextInfo: 0
     StartWaitTime: 1
     events: []
@@ -3249,6 +3221,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8835723759040667612, guid: 8d3c0e5ab5aed8f48a4d7cc46779a9b1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835723759040667612, guid: 8d3c0e5ab5aed8f48a4d7cc46779a9b1, type: 3}
       propertyPath: unlimitedBudgetWork
       value: 1
       objectReference: {fileID: 0}
@@ -3287,7 +3263,7 @@ PrefabInstance:
     - target: {fileID: 6106296291475283472, guid: 0cde43a759dba114f9462d2bad24411f, type: 3}
       propertyPath: 'StartNeedOpen.Array.data[2]'
       value: 
-      objectReference: {fileID: 249684670}
+      objectReference: {fileID: 2609962172443418291}
     - target: {fileID: 6106296291475283472, guid: 0cde43a759dba114f9462d2bad24411f, type: 3}
       propertyPath: 'StartNeedClose.Array.data[0]'
       value: 

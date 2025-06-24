@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -27,7 +28,7 @@ public class TutorialManager : MonoBehaviour
             new TutorialStep
             {
                 stepID = 0,
-                condition = () => (LevelManager.State == LevelState.Prepare && Time.timeSinceLevelLoad > 1f), // Replace with actual condition
+                condition = () => (LevelManager.State == LevelState.Prepare && Time.timeSinceLevelLoad > 0.8f), // Replace with actual condition
                 action = () => UIManager.Instance.ShowTutorial()
             },
             new TutorialStep
@@ -40,6 +41,15 @@ public class TutorialManager : MonoBehaviour
                     GameManager.Instance.PauseGame(); // Pause the game when the tutorial starts
                 }
 
+            },
+            new TutorialStep
+            {
+                stepID = 2,
+                condition = () => LevelManager.State == LevelState.Prepare && PlayerStatsManager.Instance.GetMaxOverdrive() > 0, // Replace with actual condition
+                action = () =>
+                {
+                    StartCoroutine(ActionAfterWaitTime(1f, ShowNextTutorial));
+                }
             },
             // Add more steps as needed
         };
@@ -65,8 +75,13 @@ public class TutorialManager : MonoBehaviour
         Debug.Log("Showing next tutorial page.");
         UIManager.Instance.AvailablePageAmount++;
         UIManager.Instance.ShowTutorial();
-        UIManager.Instance.ShowTutorialNextPage();
+        UIManager.Instance.ShowTutorialPage(UIManager.Instance.AvailablePageAmount);
     }
 
+    private IEnumerator ActionAfterWaitTime(float time, Action action)
+    {
+        yield return new WaitForSeconds(time);
+        action();
+    }
 
 }
