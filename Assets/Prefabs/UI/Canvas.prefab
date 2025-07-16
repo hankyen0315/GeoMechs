@@ -9118,11 +9118,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6354727764454849979, guid: c9c61b2ffd78d3046b1ca4af3f87e390, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.002243042
+      value: 0.0022125244
       objectReference: {fileID: 0}
     - target: {fileID: 6354727764454849979, guid: c9c61b2ffd78d3046b1ca4af3f87e390, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -135.4949
+      value: -143.99486
       objectReference: {fileID: 0}
     - target: {fileID: 6354727764454849981, guid: c9c61b2ffd78d3046b1ca4af3f87e390, type: 3}
       propertyPath: m_fontSize
@@ -9290,7 +9290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6354727764835811343, guid: c9c61b2ffd78d3046b1ca4af3f87e390, type: 3}
       propertyPath: m_Value
-      value: 0.97048527
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6354727764835811343, guid: c9c61b2ffd78d3046b1ca4af3f87e390, type: 3}
       propertyPath: m_NumberOfSteps

@@ -85,7 +85,7 @@ MonoBehaviour:
   xEdgeOffset: 0.106
   yEdgeOffset: 0.2
   tryTimes: 8
-  moveSpeed: 3
+  moveSpeed: 4
 --- !u!1102 &-6733187513915594279
 AnimatorState:
   serializedVersion: 6

@@ -18,7 +18,7 @@
                     "name": "Rotate",
                     "type": "Button",
                     "id": "8019f3af-960b-4bd5-9738-75bb8024539a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -27,7 +27,7 @@
                     "name": "Overdrive",
                     "type": "Button",
                     "id": "ff692e9e-343f-4165-a205-62e641ccf5df",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
