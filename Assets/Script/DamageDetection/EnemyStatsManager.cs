@@ -99,7 +99,7 @@ public class EnemyStatsManager : MonoBehaviour, IGiveDamage
         
         if (WaveManager.Instance.LastWaveBeforePrepare && WaveManager.Instance.OnlyOneEnemyLeft && IsEnemyEntity)
         {
-            foreach (CalculateEffect ce in GetComponentsInChildren<CalculateEffect>())
+            foreach (AttackManager ce in GetComponentsInChildren<AttackManager>())
             {
                 ce.Auto = false;
                 ce.StopAllTasks();

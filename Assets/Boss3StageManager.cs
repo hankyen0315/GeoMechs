@@ -12,7 +12,7 @@ public class Boss3StageManager : BossStageManager
     protected override void RestartBoss()
     {
         GetComponent<EnemyStatsManager>().stopMove = false;
-        foreach (CalculateEffect ce in GetComponentsInChildren<CalculateEffect>())
+        foreach (AttackManager ce in GetComponentsInChildren<AttackManager>())
         {
             ce.Auto = ce.AutoState;
             ce.ExecuteAllTasks();
@@ -23,7 +23,7 @@ public class Boss3StageManager : BossStageManager
     protected override void StopBoss()
     {
         GetComponent<EnemyStatsManager>().stopMove = true;
-        foreach (CalculateEffect ce in GetComponentsInChildren<CalculateEffect>())
+        foreach (AttackManager ce in GetComponentsInChildren<AttackManager>())
         {
             print("stop tasks in: " + ce.gameObject.name);
             ce.Auto = false;

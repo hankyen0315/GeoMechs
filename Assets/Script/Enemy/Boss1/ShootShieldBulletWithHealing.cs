@@ -39,7 +39,7 @@ public class ShootShieldBulletWithHealing : StateMachineBehaviour
         {
             shieldPart.AttackInterval /= attackSpeedUp;
         }
-        shieldCollection.GetComponent<CalculateEffect>().Auto = true;
+        shieldCollection.GetComponent<AttackManager>().Auto = true;
         //circle.gameObject.GetComponent<CalculateEffect>().AttackInterval /= attackSpeedUp;
         animator.SetBool("attackEnd", false);
     }
@@ -57,8 +57,8 @@ public class ShootShieldBulletWithHealing : StateMachineBehaviour
             {
                 shieldPart.AttackInterval *= attackSpeedUp;
             }
-            shieldCollection.GetComponent<CalculateEffect>().StopAllTasks();
-            shieldCollection.GetComponent<CalculateEffect>().Auto = false;
+            shieldCollection.GetComponent<AttackManager>().StopAllTasks();
+            shieldCollection.GetComponent<AttackManager>().Auto = false;
             
             animator.GetComponent<DamageDetector>().Active = true;
             animator.SetBool("attackEnd", true);

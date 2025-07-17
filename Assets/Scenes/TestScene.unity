@@ -1391,11 +1391,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0027313232
+      value: -0.0023651123
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002960, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143.99556
+      value: -143.99516
       objectReference: {fileID: 0}
     - target: {fileID: 6798588767112002966, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_text
@@ -1487,6 +1487,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7638884625286651916, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724830776687812507, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
+      propertyPath: IsTutorialEnabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7900449199392590233, guid: 21f075dbc9a61c940bfbc5d6a9c8edc3, type: 3}
@@ -2813,8 +2817,8 @@ MonoBehaviour:
     events: []
     Type: 3
   - EnemyInfos:
-    - prefab: {fileID: 1639726462968610675, guid: d8c07909d881d5541bbbc3c2c9b784b8, type: 3}
-      number: 1
+    - prefab: {fileID: 7181046430191443817, guid: 7536bd1da36baa544bb24486207b0dcf, type: 3}
+      number: 2
       spawnPosition: 0
       SpawnPosition: {fileID: 2011276011}
       MaxXOffset: 0

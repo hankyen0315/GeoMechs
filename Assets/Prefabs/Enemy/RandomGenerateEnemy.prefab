@@ -90,6 +90,7 @@ MonoBehaviour:
   StickWithInstantiatePoint: 0
   Bullet: {fileID: 1281335547224184634, guid: 5499ca9662beca04c87394631ec3d09f, type: 3}
   AttackInterval: 1.25
+  ScatterAngle: 25
 --- !u!1 &4510891132563932165
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +182,7 @@ MonoBehaviour:
   StickWithInstantiatePoint: 1
   Bullet: {fileID: 5962918167415608156, guid: 757bee5fdf1f3ff4782b9f30147c0776, type: 3}
   AttackInterval: 1
+  ScatterAngle: 25
 --- !u!114 &2675447787107675959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cdTime: 5
-  shieldEffect: {fileID: 499760394829778537}
+  shieldAttack: {fileID: 6559393617409450871}
 --- !u!1 &4592864457654194411
 GameObject:
   m_ObjectHideFlags: 0

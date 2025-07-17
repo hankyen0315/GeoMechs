@@ -17,22 +17,13 @@ public abstract class Part : MonoBehaviour
 
     public Material OverdriveMaterial;
     public Material OriginalMaterial;
+
+
+
     [HideInInspector]
     public GameObject ConnectTo;
     //private bool _active = true;
     public bool Active = true;
-    //{
-    //    get
-    //    {
-    //        return _active;
-    //    }
-    //    set
-    //    {
-    //        if (value != _active) OnActiveStateChange(value);
-    //        _active = value;
-    //    }
-    //}
-    //protected abstract void OnActiveStateChange(bool changeTo);
 
     public abstract Dictionary<string,string> GetPartDetail();
 
@@ -65,6 +56,4 @@ public abstract class Part : MonoBehaviour
         Destroy(odMaterial);
         SpriteRenderer.material = OriginalMaterial;
     }
-
-
 }

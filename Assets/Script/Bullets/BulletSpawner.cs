@@ -35,20 +35,23 @@ public class BulletSpawner : MonoBehaviour
             StartCoroutine(WaitForLaserBuildup());
         }
 
-        //if (bullet.name == "NormalBullet" || bullet.name == "FastBullet")
-        //{
-        //    AudioManager.Instance.PlayPlayerSounds("Normal attack");
-        //}
-
-
         if (parent == null)
         {
             parent = transform;
         }
         GameObject newBullet = Instantiate(bullet, position, rotation, parent);
         newBullet.GetComponentInChildren<Bullet>().AttackPower *= AttackModifier;
-        if (overdriveCallback == null) return newBullet;
-        overdriveCallback(newBullet);
+        if (overdriveCallback != null)
+        {
+            overdriveCallback(newBullet);
+        }
+        
+        if (parent.gameObject != transform.gameObject)
+        {
+            newBullet.transform.localScale = ScaleBack.GetOriginalScale(parent.localScale);
+        }
+        newBullet.name = "Bullet";
+
         return newBullet;
     }
 

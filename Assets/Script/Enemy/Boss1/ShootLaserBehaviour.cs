@@ -13,7 +13,7 @@ public class ShootLaserBehaviour : StateMachineBehaviour
         timer = 0f;
         animator.SetBool("attackEnd", false);
         GameObject laser = GameObject.Find("NonRotated/Laser");
-        laser.GetComponent<CalculateEffect>().TriggerMultipleTimes(1);
+        laser.GetComponent<AttackManager>().TriggerMultipleTimes(1);
 
     }
 

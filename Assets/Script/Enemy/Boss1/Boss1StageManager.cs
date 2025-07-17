@@ -16,7 +16,7 @@ public class Boss1StageManager : BossStageManager
 
     protected override void RestartBoss()
     {
-        foreach (CalculateEffect ce in GetComponentsInChildren<CalculateEffect>())
+        foreach (AttackManager ce in GetComponentsInChildren<AttackManager>())
         {
             ce.Auto = ce.AutoState;
             ce.ExecuteAllTasks();
@@ -27,7 +27,7 @@ public class Boss1StageManager : BossStageManager
 
     protected override void StopBoss()
     {
-        foreach (CalculateEffect ce in GetComponentsInChildren<CalculateEffect>())
+        foreach (AttackManager ce in GetComponentsInChildren<AttackManager>())
         {
             ce.Auto = false;
             ce.StopAllTasks();

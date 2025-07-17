@@ -8,9 +8,10 @@ public class ShieldEnemyBehaviour : MonoBehaviour
 {
     [SerializeField]
     private float cdTime;
+    //[SerializeField]
+    //private Effect shieldEffect;
     [SerializeField]
-    private Effect shieldEffect;
-
+    private Attack shieldAttack;
 
     private void Start()
     {
@@ -23,6 +24,6 @@ public class ShieldEnemyBehaviour : MonoBehaviour
     private IEnumerator CreateShield(float time)
     {
         yield return new WaitForSeconds(time);
-        shieldEffect.UpdateEffect(shieldEffect.gameObject, 1, 1);
+        shieldAttack.AttackOnce();
     }
 }

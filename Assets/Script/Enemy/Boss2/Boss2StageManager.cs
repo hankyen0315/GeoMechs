@@ -29,7 +29,7 @@ public class Boss2StageManager : BossStageManager
     protected override void StopBoss()
     {
         stage1Behaviour.enabled = false;
-        foreach (CalculateEffect ce in GetComponentsInChildren<CalculateEffect>(false))
+        foreach (AttackManager ce in GetComponentsInChildren<AttackManager>(false))
         {
             ce.Auto = false;
             ce.StopAllTasks();
@@ -39,7 +39,7 @@ public class Boss2StageManager : BossStageManager
 
     protected override void RestartBoss()
     {
-        foreach (CalculateEffect ce in GetComponentsInChildren<CalculateEffect>(false))
+        foreach (AttackManager ce in GetComponentsInChildren<AttackManager>(false))
         {
             ce.Auto = ce.AutoState;
             ce.ExecuteAllTasks();

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AttackSwitch : MonoBehaviour
 {
-    public List<CalculateEffect> FirstLayerConnectPoints;
+    public List<AttackManager> FirstLayerConnectPoints;
 
     public GameObject[] StartNeedClose;
     public GameObject[] StartNeedOpen;

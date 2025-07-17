@@ -10,7 +10,7 @@ public class ShootTripleBulletBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        CalculateEffect calculator = GameObject.Find("NonRotated/CanonCollection/canon_switch").GetComponent<CalculateEffect>();
+        AttackManager calculator = GameObject.Find("NonRotated/CanonCollection/canon_switch").GetComponent<AttackManager>();
         calculator.TriggerMultipleTimes(3);
         timeout = calculator.triggerInterval * 3;
         timer = 0f;

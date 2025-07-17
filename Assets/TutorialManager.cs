@@ -5,6 +5,8 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 public class TutorialManager : MonoBehaviour
 {
+    public bool IsTutorialEnabled = true; // Flag to enable or disable the tutorial
+
     private int tutorialStepCount = 0;
 
     private TutorialStep[] tutorialSteps;
@@ -59,6 +61,8 @@ public class TutorialManager : MonoBehaviour
 
     private void Update()
     {
+        if (!IsTutorialEnabled)
+            return;
         if (tutorialStepCount >= tutorialSteps.Length)
             return;
         if (tutorialSteps[tutorialStepCount].condition() == true)
