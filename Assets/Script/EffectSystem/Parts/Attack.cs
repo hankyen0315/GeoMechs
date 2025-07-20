@@ -17,6 +17,7 @@ public class Attack : Part
         base.Start();
         GetComponentInParent<AttackManager>()?.RegisterAttack(this);
     }
+
     private void OnDestroy()
     {
         GetComponentInParent<AttackManager>()?.UnregisterAttack();
@@ -32,14 +33,10 @@ public class Attack : Part
         
         foreach (AttackPath path in attackPaths)
         {
-            float attackModifier = 1;
-            int scatter = 1;
-            foreach (Buff buff in path.BuffsOnPath)
-            {
-                if (!buff.Active) continue;
-                attackModifier *= buff.AttackModifier;
-                scatter += buff.Scatter;
-            }
+            float attackModifier;
+            int scatter;
+            CalculateBuffEffect(path, out attackModifier, out scatter);
+
             var rotations = GetBulletRotations(path.EndPoint, scatter, ScatterAngle);
 
             foreach (var rotation in rotations)
@@ -47,6 +44,18 @@ public class Attack : Part
                 Transform parent = StickWithInstantiatePoint ? path.EndPoint : null;
                 BulletSpawner.Instance.SpawnBullet(Bullet, path.EndPoint.position, rotation, parent, attackModifier, od?.AfterBulletInitCallback);
             }
+        }
+    }
+
+    private void CalculateBuffEffect(AttackPath path, out float attackModifier, out int scatter)
+    {
+        attackModifier = 1;
+        scatter = 1;
+        foreach (Buff buff in path.BuffsOnPath)
+        {
+            if (!buff.Active) continue;
+            attackModifier *= buff.AttackModifier;
+            scatter += buff.Scatter;
         }
     }
 
@@ -64,6 +73,8 @@ public class Attack : Part
         }
         return rotations;
     }
+
+
 
     public void RebuildAttackPaths()
     {
@@ -83,7 +94,6 @@ public class Attack : Part
         detail.Add("Part Durability", GetComponent<PartStatsManager>().GetHealth().ToString());
         detail.Add("Supplement", supplement);
         detail.Add("Overdrive", OverdriveAbility);
-
         return detail;
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine;
 public class AttackManager : MonoBehaviour
 {
     public bool Auto = false;
-    [Tooltip("so far only boss1 use this, so other gameobject can ignore it")]
     public float triggerInterval = 0.5f;
     [SerializeField]
     private float bulletInterval = 0.05f;
@@ -14,19 +13,40 @@ public class AttackManager : MonoBehaviour
     [SerializeField]
     private float randomTimeOffsetRange = 0f;
 
-
-
     [SerializeField]
-    private bool isEnemy = true; // temp solution QQ
+    private bool isEnemy = true;
     private bool started = false;
-    public bool AutoState;
 
     private Stack<AttackTask> attackTasks = new Stack<AttackTask>();
     private Dictionary<string, int> attackCountByBulletType = new Dictionary<string, int>();
-    private void Awake()
+
+
+
+    private struct AttackTask
     {
-        AutoState = Auto;
+        public Attack attack;
+        private float startTime;
+        private float randomTimeOffsetRange;
+        public AttackTask(Attack _attack, float _startTime, float offset)
+        {
+            attack = _attack;
+            startTime = _startTime;
+            randomTimeOffsetRange = offset;
+        }
+        public IEnumerator ExecuteRepeatedly()
+        {
+            yield return new WaitForSeconds(this.startTime);
+            while (LevelManager.State == LevelState.Fight)
+            {
+                attack.AttackOnce();
+                float offset = Random.Range(-randomTimeOffsetRange, randomTimeOffsetRange);
+                yield return new WaitForSeconds(attack.AttackInterval + offset);
+            }
+        }
     }
+
+
+
     private void Update()
     {
         if (isEnemy && !started)
@@ -55,7 +75,6 @@ public class AttackManager : MonoBehaviour
 
     public void RegisterAttack(Attack attack)
     {
-        print(gameObject.name + " register task, bullet: " + attack.Bullet.name + " interval: " + attack.AttackInterval.ToString());
         if (!attackCountByBulletType.ContainsKey(attack.Bullet.name))
         {
             attackCountByBulletType[attack.Bullet.name] = 1;
@@ -70,68 +89,33 @@ public class AttackManager : MonoBehaviour
         attackTasks.Push(newTask);
     }
 
-    //assume that only the tail, which is the last element of the task stack, could be remove
     public void UnregisterAttack()
     {
+        //only the tail, which is the last element of the task stack, could be remove
         AttackTask removeTask = attackTasks.Pop();
         attackCountByBulletType[removeTask.attack.Bullet.name]--;
     }
 
-    private struct AttackTask
+
+    /// <summary>
+    /// Used to trigger attack specific amount of times, useful for boss attacks or special events.
+    /// </summary>
+    public void TriggerMultipleTimes(int times, float interval)
     {
-        public Attack attack;
-        private float startTime;
-        private float randomTimeOffsetRange;
-        public AttackTask(Attack _attack, float _startTime, float offset)
-        {
-            attack = _attack;
-            startTime = _startTime;
-            randomTimeOffsetRange = offset;
-        }
-        public IEnumerator ExecuteRepeatedly()
-        {
-            yield return new WaitForSeconds(this.startTime);
-            while (LevelManager.State == LevelState.Fight)
-            {
-                attack.AttackOnce();
-                float offset = Random.Range(-randomTimeOffsetRange, randomTimeOffsetRange);
-                yield return new WaitForSeconds(attack.AttackInterval + offset);
-            }
-        }
+        StartCoroutine(StartTrigger(times, interval));
     }
 
-
-
-
-
-    #region for boss
-    public void TriggerMultipleTimes(int times)
-    {
-        StartCoroutine(StartTrigger(times));
-    }
-    
-
-
-    private IEnumerator StartTrigger(int times)
+    private IEnumerator StartTrigger(int times, float interval)
     {
         for (int i = 0; i < times; i++)
         {
-            TriggerOnce();
-            yield return new WaitForSeconds(triggerInterval);
+            foreach (AttackTask task in attackTasks)
+            {
+                task.attack.AttackOnce();
+            }
+            yield return new WaitForSeconds(interval);
         }
-    }
-
-
-
-    private void TriggerOnce()
-    {
-        foreach (AttackTask task in attackTasks)
-        {
-            task.attack.AttackOnce();
-        }
-    }
-    #endregion
-
+    }  
 }
 
 

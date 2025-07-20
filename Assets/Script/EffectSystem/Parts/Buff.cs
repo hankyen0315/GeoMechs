@@ -8,6 +8,7 @@ public class Buff : Part
     public int Scatter = 0;
 
 
+
     public override Dictionary<string, string> GetPartDetail()
     {
         Dictionary<string, string> detail = new Dictionary<string, string>();

@@ -11,35 +11,31 @@ public abstract class Part : MonoBehaviour
     public string supplement = "";
     [TextArea()]
     public string OverdriveAbility = "";
-
     public VideoClip PreviewVideo;
-
 
     public Material OverdriveMaterial;
     public Material OriginalMaterial;
 
-
-
     [HideInInspector]
     public GameObject ConnectTo;
-    //private bool _active = true;
     public bool Active = true;
-
-    public abstract Dictionary<string,string> GetPartDetail();
-
-
     private int initialChildCount = 0;
-    public bool IsPartAtTail
+    public bool NoConnectedChildPart
     {
         get
         {
             return gameObject.transform.childCount == initialChildCount;
         }
     }
+
+
+
     protected void Start()
     {
         initialChildCount = transform.childCount;
     }
+
+    public abstract Dictionary<string, string> GetPartDetail();
 
     public void ToOverdriveMaterial()
     {

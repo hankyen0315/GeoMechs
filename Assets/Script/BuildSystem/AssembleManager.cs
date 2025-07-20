@@ -100,7 +100,7 @@ public class AssembleManager : MonoBehaviour
     {
         GameObject SelectPart = Selectable.Selected.GetPartGameObject();
         if (SelectPart == null) return;
-        if (!SelectPart.GetComponent<Part>().IsPartAtTail)
+        if (!SelectPart.GetComponent<Part>().NoConnectedChildPart)
         {
             UIManager.Instance.ShowMessage("Can't remove part not at the end!");
             return;

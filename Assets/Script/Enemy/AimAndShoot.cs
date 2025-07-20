@@ -43,7 +43,7 @@ public class AimAndShoot : MonoBehaviour
         if (timer > timeout)
         {
             Debug.Log("aimed");
-            GetComponent<AttackManager>().TriggerMultipleTimes(1);
+            GetComponent<AttackManager>().TriggerMultipleTimes(1, 0f);
             timer = 0f;
             StartCoroutine(CoolDown());
         }
