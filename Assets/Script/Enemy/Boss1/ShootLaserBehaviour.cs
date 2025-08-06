@@ -13,7 +13,7 @@ public class ShootLaserBehaviour : StateMachineBehaviour
         timer = 0f;
         animator.SetBool("attackEnd", false);
         GameObject laser = GameObject.Find("NonRotated/Laser");
-        laser.GetComponent<AttackManager>().TriggerMultipleTimes(1);
+        laser.GetComponent<AttackManager>().TriggerMultipleTimes(1, 0);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

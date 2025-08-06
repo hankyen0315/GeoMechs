@@ -11,8 +11,8 @@ public class ShootTripleBulletBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         AttackManager calculator = GameObject.Find("NonRotated/CanonCollection/canon_switch").GetComponent<AttackManager>();
-        calculator.TriggerMultipleTimes(3);
-        timeout = calculator.triggerInterval * 3;
+        calculator.TriggerMultipleTimes(3,0.25f);
+        timeout = 0.25f * 3;
         timer = 0f;
         animator.SetBool("attackEnd", false);
     }

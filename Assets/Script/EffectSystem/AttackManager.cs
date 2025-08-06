@@ -6,10 +6,14 @@ using UnityEngine;
 public class AttackManager : MonoBehaviour
 {
     public bool Auto = false;
-    public float triggerInterval = 0.5f;
+    [HideInInspector]
+    [Tooltip("used to save the state of Auto, so that it could be restored when AttackManager is restarted")]
+    public bool AutoState = false;
+
+    [Tooltip("The time interval to keep same kind of bullet from overlapping")]
     [SerializeField]
     private float bulletInterval = 0.05f;
-    [Tooltip("To make the enemy attack timing has some sort of randomness, so they won't attack at once")]
+    [Tooltip("To make the enemys' attack timing have some sort of randomness, so they won't attack at once")]
     [SerializeField]
     private float randomTimeOffsetRange = 0f;
 
@@ -17,7 +21,7 @@ public class AttackManager : MonoBehaviour
     private bool isEnemy = true;
     private bool started = false;
 
-    private Stack<AttackTask> attackTasks = new Stack<AttackTask>();
+    private List<AttackTask> attackTasks = new List<AttackTask>();
     private Dictionary<string, int> attackCountByBulletType = new Dictionary<string, int>();
 
 
@@ -47,6 +51,11 @@ public class AttackManager : MonoBehaviour
 
 
 
+    private void Awake()
+    {
+        AutoState = Auto;
+    }
+
     private void Update()
     {
         if (isEnemy && !started)
@@ -54,6 +63,8 @@ public class AttackManager : MonoBehaviour
             ExecuteAllTasks();
         }
     }
+
+
 
     public void ExecuteAllTasks()
     {
@@ -73,6 +84,7 @@ public class AttackManager : MonoBehaviour
     }
 
 
+
     public void RegisterAttack(Attack attack)
     {
         if (!attackCountByBulletType.ContainsKey(attack.Bullet.name))
@@ -86,15 +98,29 @@ public class AttackManager : MonoBehaviour
         //calculate the start time of this attack, so that it won't overlap with other attacks
         float startTime = (attackCountByBulletType[attack.Bullet.name]-1) * bulletInterval;
         AttackTask newTask = new AttackTask(attack, startTime, randomTimeOffsetRange);
-        attackTasks.Push(newTask);
+        attackTasks.Add(newTask);
     }
 
-    public void UnregisterAttack()
+    public void UnregisterAttack(Attack attack)
     {
-        //only the tail, which is the last element of the task stack, could be remove
-        AttackTask removeTask = attackTasks.Pop();
+        AttackTask removeTask = new AttackTask();
+        foreach (AttackTask task in attackTasks)
+        {
+            if (task.attack == attack)
+            {
+                removeTask = task;
+                attackTasks.Remove(task);
+                break;
+            }
+        }
+        if (removeTask.attack == null) 
+        {
+            print("Error: try to unregister an attack that is not registered");
+            return;
+        }
         attackCountByBulletType[removeTask.attack.Bullet.name]--;
     }
+
 
 
     /// <summary>

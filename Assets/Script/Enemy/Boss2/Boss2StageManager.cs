@@ -7,8 +7,6 @@ public class Boss2StageManager : BossStageManager
     public Boss2Stage1Behaviour stage1Behaviour;
     public Boss2Stage2Behaviour stage2Behaviour;
 
-
-
     //protected  void Update()
     //{
     //    if (statsManager.GetHealth() / maxHealth < transformRatio && stage == 1)

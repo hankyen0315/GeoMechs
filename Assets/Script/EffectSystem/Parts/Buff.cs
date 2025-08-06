@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Buff : Part
 {
@@ -8,6 +6,12 @@ public class Buff : Part
     public int Scatter = 0;
 
 
+
+    public virtual void ApplyBuff(ref AttackContext context)
+    {
+        context.AttackModifier *= AttackModifier;
+        context.Scatter += Scatter;
+    }
 
     public override Dictionary<string, string> GetPartDetail()
     {

@@ -18,6 +18,7 @@ public abstract class Part : MonoBehaviour
 
     [HideInInspector]
     public GameObject ConnectTo;
+    [HideInInspector]
     public bool Active = true;
     private int initialChildCount = 0;
     public bool NoConnectedChildPart

@@ -10,8 +10,6 @@ public static class AttackPathBuilder
         return result;
     }
 
-
-
     private static void BuildAttackPathsRecursive(Transform current, List<AttackPath> result, List<Buff> buffs)
     {
         if (current == null) return;

@@ -12,6 +12,8 @@ public class Attack : Part
 
     private List<AttackPath> attackPaths = new List<AttackPath>();
 
+
+
     private new void Start()
     {
         base.Start();
@@ -20,7 +22,7 @@ public class Attack : Part
 
     private void OnDestroy()
     {
-        GetComponentInParent<AttackManager>()?.UnregisterAttack();
+        GetComponentInParent<AttackManager>()?.UnregisterAttack(this);
     }
 
 
@@ -30,46 +32,44 @@ public class Attack : Part
         if (LevelManager.State != LevelState.Fight || !Active) return;
 
         Overdrive od = gameObject.GetComponent<Overdrive>();
-        
+        AttackContext context = new AttackContext
+        {
+            Scatter = 1,
+            AttackModifier = 1,
+        };
         foreach (AttackPath path in attackPaths)
         {
-            float attackModifier;
-            int scatter;
-            CalculateBuffEffect(path, out attackModifier, out scatter);
+            CalculateBuffEffect(ref context, path);
 
-            var rotations = GetBulletRotations(path.EndPoint, scatter, ScatterAngle);
+            var rotations = GetBulletRotations(path.EndPoint, context.Scatter, ScatterAngle);
 
             foreach (var rotation in rotations)
             {
                 Transform parent = StickWithInstantiatePoint ? path.EndPoint : null;
-                BulletSpawner.Instance.SpawnBullet(Bullet, path.EndPoint.position, rotation, parent, attackModifier, od?.AfterBulletInitCallback);
+                BulletSpawner.Instance.SpawnBullet(Bullet, path.EndPoint.position, rotation, parent, context.AttackModifier, od?.AfterBulletInitCallback);
             }
         }
     }
 
-    private void CalculateBuffEffect(AttackPath path, out float attackModifier, out int scatter)
+    private void CalculateBuffEffect(ref AttackContext context, AttackPath path)
     {
-        attackModifier = 1;
-        scatter = 1;
         foreach (Buff buff in path.BuffsOnPath)
         {
             if (!buff.Active) continue;
-            attackModifier *= buff.AttackModifier;
-            scatter += buff.Scatter;
+            buff.ApplyBuff(ref context);
         }
     }
 
     private List<Quaternion> GetBulletRotations(Transform endPoint, int scatter, float scatterAngle)
     {
         List<Quaternion> rotations = new List<Quaternion>();
-        float negValue = -scatterAngle;
         float forward = endPoint.rotation.eulerAngles.z;
-        float initialAngle = (scatter % 2 == 1) ? forward : forward - negValue / 2f;
+        float initialAngle = (scatter % 2 == 1) ? forward : forward + scatterAngle / 2f;
         for (int i = 0; i < scatter; i++)
         {
-            negValue = -negValue;
-            initialAngle += i * negValue;
+            initialAngle += i * scatterAngle;
             rotations.Add(Quaternion.Euler(0, 0, initialAngle));
+            scatterAngle = -scatterAngle; // Alternate the angle for the next bullet
         }
         return rotations;
     }
@@ -80,7 +80,6 @@ public class Attack : Part
     {
         attackPaths = AttackPathBuilder.BuildAllAttackPaths(transform);
     }
-
 
 
 
